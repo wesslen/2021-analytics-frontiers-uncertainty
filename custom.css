@@ -1,0 +1,102 @@
+
+
+/* Extra CSS */
+.red {
+  color: red;
+}
+.small {
+  font-size: 70%;
+}
+.large {
+  font-size: 150%;
+}
+.xlarge {
+  font-size: 250%;
+  vertical-align: middle;
+}
+.full-width {
+  display: flex;
+  width: 100%;
+  flex: 1 1 auto;
+}
+.remark-slide-content:after {
+  content: 'bit.ly/vis-uncertainty';
+  position: absolute;
+  font-size: 0.4em;
+  bottom: 5px;
+  right: 10px;
+  height: 40px;
+  width: 250px;
+}
+.remark-slide-number {
+  color: #FFFFFF;
+  opacity: 1;
+}
+
+
+/* Extra CSS */
+.red {
+  color: red;
+}
+.small {
+  font-size: 70%;
+}
+.large {
+  font-size: 150%;
+}
+.xlarge {
+  font-size: 250%;
+  vertical-align: middle;
+}
+.full-width {
+  display: flex;
+  width: 100%;
+  flex: 1 1 auto;
+}
+.remark-slide-content:after {
+  content: 'bit.ly/vis-uncertainty';
+  position: absolute;
+  font-size: 0.8em;
+  bottom: 5px;
+  right: 10px;
+  height: 40px;
+  width: 250px;
+}
+.remark-slide-number {
+  color: #FFFFFF;
+  opacity: 1;
+}
+
+
+/* Extra CSS */
+.red {
+  color: red;
+}
+.small {
+  font-size: 70%;
+}
+.large {
+  font-size: 120%;
+}
+.xlarge {
+  font-size: 250%;
+  vertical-align: middle;
+}
+.full-width {
+  display: flex;
+  width: 100%;
+  flex: 1 1 auto;
+}
+.remark-slide-content:after {
+  content: 'bit.ly/vis-uncertainty';
+  position: absolute;
+  font-size: 0.8em;
+  bottom: 5px;
+  right: 10px;
+  height: 40px;
+  width: 250px;
+}
+.remark-slide-number {
+  color: #FFFFFF;
+  opacity: 1;
+}

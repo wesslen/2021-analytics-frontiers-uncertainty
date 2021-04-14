@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Uncertainty visualizations for improving data science decision-making</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Ryan Wesslen / April 22, 2021" />
+    <meta name="description" content="Uncertainty visualizations for improving data science decision-making"/>
+    <meta name="generator" content="xaringan and remark.js"/>
+    <meta name="github-repo" content="wesslen/uncc-uncertainty"/>
+    <meta name="twitter:title" content="Uncertainty visualizations for improving data science decision-making"/>
+    <meta name="twitter:description" content="Uncertainty visualizations for improving data science decision-making"/>
+    <meta name="twitter:url" content="uncc-uncertainty.netlify.app"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:creator" content="@ryanwesslen"/>
+    <meta name="twitter:site" content="@ryanwesslen"/>
+    <meta property="og:title" content="Uncertainty visualizations for improving data science decision-making"/>
+    <meta property="og:description" content="Uncertainty visualizations for improving data science decision-making"/>
+    <meta property="og:url" content="uncc-uncertainty.netlify.app"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="article:author" content="Ryan Wesslen"/>
+    <script src="libs/freezeframe/freezeframe.min.js"></script>
+    <script src="libs/xaringanExtra-freezeframe/freezeframe-init.js"></script>
+    <script id="xaringanExtra-freezeframe-options" type="application/json">{"selector":"img[src$=\"gif\"]","trigger":"click","overlay":false,"responsive":true,"warnings":true}</script>
+    <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
+    <script src="libs/fabric/fabric.min.js"></script>
+    <link href="libs/xaringanExtra-scribble/scribble.css" rel="stylesheet" />
+    <script src="libs/xaringanExtra-scribble/scribble.js"></script>
+    <script>document.addEventListener('DOMContentLoaded', function() { window.xeScribble = new Scribble({"pen_color":["#FF0000"],"pen_size":3,"eraser_size":30}) })</script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="custom.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# Uncertainty visualizations for improving data science decision-making
+## How I learned to love uncertainty by visualizing it
+### Ryan Wesslen / April 22, 2021
+
+---
+
+
+
+
+
+
+
+
+
+
+
+
+# About Me 
+
+
+
+#### Day job: Bank of America
+
+* Manage natural lanuage processing (NLP) team
+
+* Chief Data Scientist Organization, Enterprise Data &amp; Strategy Governance
+
+--
+
+#### This presentation: UNCC Ribarsky Center, School of Data Science
+
+* Last 5 years research group of 16+ UNCC faculty/students 
+
+* 18 publications in human-computer interaction, visual analytics, information visualization, computational social science, cognitive science, psychology
+
+* Collaborators: Wenwen Dou, Alireza Karduni, and Doug Markant
+
+
+
+--
+
+"The views expressed herein are those of the presenter; they do not necessarily reflect the views of author's employer or any other group or individual."
+
+--
+
+&lt;p align="right"&gt;This presentation is available at this url&lt;/p&gt;
+
+???
+
+[wesslen.netlify.app](wesslen.netlify.app)
+
+---
+# Uncertainty
+
+class: center, middle
+
+&lt;img src="./img/why-electricity.png" width=650 height=550&gt;
+
+???
+
+From COVID-19 to gamestop stocks to suez canal
+
+* these unexpected events foster uncertainty
+
+---
+
+class: center, middle, inverse
+
+# Why does data science frequently ignore uncertainty?
+
+---
+
+# Thesis
+
+The fields of human-computer interaction and information visualizations
+
+* probabilities are hard =&gt; frequency framing 
+
+* classic statistics (e.g., p values) are confusing =&gt; bootstrapping with hops
+
+* we learn =&gt; Bayesian analysis
+
+---
+
+class: center, middle, inverse
+
+# Probabilities are hard
+
+---
+
+
+Uncertainty
+
+* Knightian Uncertainty
+
+* Entropy / information theory
+
+* Frequentist: p-value, NHST
+
+---
+
+Decision-making: "choice between two or more competing courses of action" (Balleine, 2007 and Padilla et al., 2020)
+
+argument: rise of visualization / hci best way to communicate uncertainty in data science (see padilla et al)
+
+Choose dual-process framework: type 1 and type 2
+
+---
+
+Lead to common errors
+
+* Frequency framing
+
+* Cognitive categories
+
+* anchoring
+
+---
+
+# Frequency framing
+
+&lt;img src="./img/frequency-framing-covid.png"&gt;
+
+[What Do Vaccine Efficacy
+Numbers Actually Mean?
+By Carl Zimmer and Keith Collins
+March 3, 2021](https://www.nytimes.com/interactive/2021/03/03/science/vaccine-efficacy-coronavirus.html)
+
+---
+
+&lt;blockquote class="twitter-tweet"&gt;&lt;p lang="en" dir="ltr"&gt;The chart from the previous tweet shows real data about migrants in Southeast Asia who suffered accidents or attacks in 2018. Can you guess whether showing individual victims like this increased people&amp;#39;s compassion?&lt;/p&gt;&amp;mdash; Luiz Morais 📊✊🏽 (@luizaugustomm) &lt;a href="https://twitter.com/luizaugustomm/status/1372533512860008449?ref_src=twsrc%5Etfw"&gt;March 18, 2021&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+---
+
+class: center, middle
+
+&lt;img src="./img/dotplot.gif"&gt;
+
+---
+
+class: center, middle, inverse
+
+# Bootstrapping
+
+
+---
+
+# Why error bars aren't enough
+
+Do palmer penguins (on average) weigh differently?
+
+
+```
+# A tibble: 3 x 2
+  species    mean
+  &lt;fct&gt;     &lt;dbl&gt;
+1 Gentoo    5076.
+2 Chinstrap 3733.
+3 Adelie    3701.
+```
+
+???
+
+Take average.
+
+---
+
+# Do palmer
+
+
+```
+# A tibble: 3 x 3
+  species    mean    sd
+  &lt;fct&gt;     &lt;dbl&gt; &lt;dbl&gt;
+1 Gentoo    5076.  504.
+2 Chinstrap 3733.  384.
+3 Adelie    3701.  459.
+```
+???
+
+why error bars aren't enough.
+
+---
+
+class: center, middle
+
+&lt;img src="./img/bar.gif" width=650 height=550&gt;
+
+Kim &amp; Heer, EuroVis 2019
+
+---
+
+Bootstrapped Sampling
+
+* Show HOPs =&gt; Attribute substitution
+
+.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
+The only way to write good code is to write tons of bad code first. 
+Feeling shame about bad code stops you from getting to good code
+
+.tr[
+— Hadley Wickham
+]]
+
+---
+
+class: center, middle
+
+&lt;img src="./img/boot0.png"&gt;
+
+---
+
+class: center, middle
+
+&lt;img src="./img/boot1.gif"&gt;
+
+---
+
+class: center, middle
+
+&lt;img src="./img/boot2.gif"&gt;
+
+---
+
+class: center, middle
+
+&lt;img src="./img/boot3.gif"&gt;
+
+---
+
+class: center, middle
+
+&lt;img src="./img/boot4.png"&gt;
+
+---
+
+class: center, middle
+
+&lt;img src="./img/bootstrapping.gif" width=10% height=10%&gt;
+
+--
+
+&lt;img src="./img/boxplot.gif" width=25% height=25%&gt;
+
+---
+
+class: center, middle, inverse
+
+&lt;img src="./img/Bayes_transparent_30x40_horiz_attrib.png" width=75% height=75%&gt;
+
+&gt; “When my information changes, I alter my conclusions. What do you do, sir?" - John Maynard Keynes
+
+---
+
+&lt;img src="./img/Sherman_Kent.png" width=60% height=60%&gt;
+
+"Father of Intelligence Analysis"
+
+---
+
+
+.pull-left[
+&lt;img src="./img/uncertainty-qual.png" width=60% height=60%&gt;
+[Barclay et al., 1977](https://files.eric.ed.gov/fulltext/ED153329.pdf)
+]
+
+--
+.pull-right[
+&lt;img src="./img/prob.jpeg" width=60% height=60%&gt;
+]
+
+---
+
+Bayesian analysis assesses the uncertainty of the hypothesis in light of the observed data, and a frequentist analysis assesses the uncertainty of the observed data in light of an assumed hypothesis.
+
+https://www.bayesrulesbook.com/chapter-1.html#thinking-like-a-bayesian
+---
+
+class: center, middle
+
+&lt;img src="./img/bayesian.jpeg" width=60% height=60%&gt;
+
+---
+
+class: center, middle
+&lt;div align="center"&gt; &lt;blockquote class="twitter-tweet"&gt;&lt;p lang="en" dir="ltr"&gt;One useful mental model for statistics: every bit of certainty you achieve has to either be earned with data or bought with assumptions, and you don’t often know how much the assumptions have cost you.&lt;/p&gt;&amp;mdash; Sean J. Taylor (@seanjtaylor) &lt;a href="https://twitter.com/seanjtaylor/status/1369170496655220740?ref_src=twsrc%5Etfw"&gt;March 9, 2021&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt; &lt;/div&gt;
+
+---
+
+# Equity premium puzzle
+
+---
+
+class: middle, center, inverse
+
+# Future work
+
+---
+
+# Bayesian cognitive modeling
+
+&lt;img src="./img/linecone.gif" width=85% height=85%&gt;
+
+Karduni, Markant, Wesslen, and Dou (InfoVis 2020)
+
+???
+
+Bayesian cognitive modeling provide a normative benchmark for how beliefs should change depending on the strength of the evidence and participants’ uncertainty. 
+
+For instance, a person who is confident that variables are negatively correlated may only shift their beliefs a small amount after seeing a dataset with a positive sample correlation. 
+
+A second person who is highly uncertain about the relationship, however, may be more strongly influenced by the same data and report posterior beliefs that are closely matched to the sample correlation. 
+
+This framework also allows us to identify when people systematically fail to adjust their beliefs as predicted by the Bayesian model.
+
+
+---
+
+# Uncertain NLP
+
+---
+
+# Rstats plots / references
+
+* Matthew Kay
+
+* Jessica Hullman
+
+* 
+
+*
+
+
+---
+
+Questions and Thank you!
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="libs/remark-latest.min.js"></script>
+<script src="https://platform.twitter.com/widgets.js"></script>
+<script>var slideshow = remark.create();
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
