@@ -1,7 +1,8 @@
 ---
 title: "Uncertainty visualizations for improving data science decision-making"
-subtitle: "How I learned to love uncertainty by visualizing it"  
-author: "Ryan Wesslen / April 22, 2021"
+subtitle: "How I learned to love uncertainty by visualizing it" 
+date: "April 22, 2021"
+author: "Ryan Wesslen / ryanwesslen.com"
 output:
   xaringan::moon_reader:
     lib_dir: libs
@@ -21,7 +22,7 @@ meta() %>%
   meta_name("github-repo" = "wesslen/uncc-uncertainty") %>% 
   meta_social(
     title = "Uncertainty visualizations for improving data science decision-making",
-    url = "uncc-uncertainty.netlify.app",
+    url = "uncc-frontiers-uncertainty.netlify.app",
     #image = "https://pkg.garrickadenbuie.com/drake-intro/assets/images/drake-intro-cover.jpg",
     #image_alt = "The first slide of the Reproducible Data Workflows with drake presentation, featuring the drake hex logo and neatly ordered row of items on a desk (eraser, pencil, coffee cup, paperclips).",
     og_type = "website",
@@ -73,7 +74,6 @@ extra_css <- list(
   )
 )
 
-
 # <style type="text/css">
 # .remark-slide-content {
 #     font-size: 20px;
@@ -92,31 +92,27 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE,
 ```
 
 
-# About Me 
-
-
+# About Me <img src="https://wesslen.netlify.app/img/portrait.jpg" width="140px" align="right" />
 
 #### Day job: Bank of America
 
-* Manage natural lanuage processing (NLP) team
+* Lead natural lanuage processing (NLP) team
 
 * Chief Data Scientist Organization, Enterprise Data & Strategy Governance
 
 --
 
-#### This presentation: UNCC Ribarsky Center, School of Data Science
+#### This presentation: UNC Charlotte Ribarsky Center and School of Data Science
 
-* Last 5 years research group of 16+ UNCC faculty/students 
+* Taught Spring/Fall 2019 DSBA5122 Visual Analytics ([dsba5122.com](https://dsba5122.com))
 
-* 18 publications in human-computer interaction, visual analytics, information visualization, computational social science, cognitive science, psychology
+* 20+ peer reviewed publications with 20+ UNCC research collaborators
 
-* Collaborators: Wenwen Dou, Alireza Karduni, and Doug Markant
+* Human-computer interaction, visual analytics, information visualization, computational social science, cognitive science, psychology
 
+* Special thanks to Wenwen Dou, Alireza Karduni, and Doug Markant
 
-
---
-
-"The views expressed herein are those of the presenter; they do not necessarily reflect the views of author's employer or any other group or individual."
+The views expressed herein are those of the presenter; they do not necessarily reflect the views of author's employer or any other group or individual.
 
 --
 
@@ -127,11 +123,10 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE,
 [wesslen.netlify.app](wesslen.netlify.app)
 
 ---
-# Uncertainty
 
 class: center, middle
 
-<img src="./img/why-electricity.png" width=650 height=550>
+<img src="./img/uncertainty.png" width=650 height=550>
 
 ???
 
