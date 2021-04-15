@@ -92,7 +92,7 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE,
 ```
 
 
-# About Me <img src="https://wesslen.netlify.app/img/portrait.jpg" width="140px" align="right" />
+# About Me <img src="https://wesslen.netlify.app/img/portrait.jpg" width="110px" align="right" />
 
 #### Day job: Bank of America
 
@@ -106,11 +106,11 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE,
 
 * Taught Spring/Fall 2019 DSBA5122 Visual Analytics ([dsba5122.com](https://dsba5122.com))
 
-* 20+ peer reviewed publications with 20+ UNCC research collaborators
+* [20+ peer reviewed publications](https://scholar.google.com/citations?user=F40SbCkAAAAJ&hl=en) with 20+ UNCC research collaborators
 
 * Human-computer interaction, visual analytics, information visualization, computational social science, cognitive science, psychology
 
-* Special thanks to Wenwen Dou, Alireza Karduni, and Doug Markant
+* Special thanks to [Wenwen Dou](https://webpages.uncc.edu/~wdou1/), [Alireza Karduni](https://www.karduni.com/), and [Doug Markant](http://www.markantlab.org/)
 
 The views expressed herein are those of the presenter; they do not necessarily reflect the views of author's employer or any other group or individual.
 
@@ -144,13 +144,13 @@ class: center, middle, inverse
 
 # Thesis
 
-The fields of human-computer interaction and information visualizations
+Recent advances in communicating uncertainty in the fields human-computer interaction and information visualizations provide ample opportunities to better integrate uncertainty with data science methods to enable better decision-making.
 
-* probabilities are hard => frequency framing 
+* probabilities are hard => frequency framing and contrual theory
 
-* classic statistics (e.g., p values) are confusing => bootstrapping with hops
+* classic statistics (e.g., p values) are confusing => bootstrapping and animation (e.g., hops)
 
-* we learn => Bayesian analysis
+* mental models are formulated from assumptions augmented by learning through data => Bayesian analysis (e.g., visualizing, estimating models, or cognitive processes)
 
 ---
 
@@ -185,8 +185,6 @@ Lead to common errors
 
 * Cognitive categories
 
-* anchoring
-
 ---
 
 # Frequency framing
@@ -198,9 +196,6 @@ Numbers Actually Mean?
 By Carl Zimmer and Keith Collins
 March 3, 2021](https://www.nytimes.com/interactive/2021/03/03/science/vaccine-efficacy-coronavirus.html)
 
----
-
-<blockquote class="twitter-tweet"><p lang="en" dir="ltr">The chart from the previous tweet shows real data about migrants in Southeast Asia who suffered accidents or attacks in 2018. Can you guess whether showing individual victims like this increased people&#39;s compassion?</p>&mdash; Luiz Morais 📊✊🏽 (@luizaugustomm) <a href="https://twitter.com/luizaugustomm/status/1372533512860008449?ref_src=twsrc%5Etfw">March 18, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 ---
 
@@ -322,23 +317,23 @@ class: center, middle, inverse
 
 ---
 
-<img src="./img/Sherman_Kent.png" width=60% height=60%>
+class: center, middle
+
+<img src="./img/Sherman_Kent.png" width=50% height=50%>
 
 "Father of Intelligence Analysis"
 
 ---
+class: center, middle
 
-
-.pull-left[
-<img src="./img/uncertainty-qual.png" width=60% height=60%>
+<img src="./img/uncertainty-qual.png" width=100% height=100%>
 [Barclay et al., 1977](https://files.eric.ed.gov/fulltext/ED153329.pdf)
-]
 
---
-.pull-right[
-<img src="./img/prob.jpeg" width=60% height=60%>
-]
 
+---
+class: center, middle
+
+<img src="./img/prob.jpeg" width=100% height=100%>
 ---
 
 Bayesian analysis assesses the uncertainty of the hypothesis in light of the observed data, and a frequentist analysis assesses the uncertainty of the observed data in light of an assumed hypothesis.
@@ -348,7 +343,7 @@ https://www.bayesrulesbook.com/chapter-1.html#thinking-like-a-bayesian
 
 class: center, middle
 
-<img src="./img/bayesian.jpeg" width=60% height=60%>
+<img src="./img/bayesian.jpeg" width=70% height=70%>
 
 ---
 
@@ -358,6 +353,8 @@ class: center, middle
 ---
 
 # Equity premium puzzle
+
+
 
 ---
 
@@ -369,7 +366,7 @@ class: middle, center, inverse
 
 # Bayesian cognitive modeling
 
-<img src="./img/linecone.gif" width=85% height=85%>
+<img src="./img/linecone.gif" width=45% height=45%>
 
 Karduni, Markant, Wesslen, and Dou (InfoVis 2020)
 
