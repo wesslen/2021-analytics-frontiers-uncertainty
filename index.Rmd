@@ -1,7 +1,7 @@
 ---
 title: "Uncertainty visualizations for improving data science decision-making"
-subtitle: "How I learned to love uncertainty by visualizing it" 
-date: "April 22, 2021"
+subtitle: "How I learned to stop worrying and love uncertainty (by visualizing it)" 
+date: "April 22, 2021 / UNCC Analytics Frontiers"
 author: "Ryan Wesslen / ryanwesslen.com"
 output:
   xaringan::moon_reader:
@@ -59,20 +59,37 @@ extra_css <- list(
     width   = "100%",
     flex    = "1 1 auto"
   ),
-  ".remark-slide-content:after" = list(
-    "content" = "'bit.ly/vis-uncertainty'",
-    "position" = "absolute",
-    "font-size" = "0.8em",
-    "bottom" = "5px",
-    "right" = "10px",
-    "height" = "40px",
-    "width" = "250px"
-  ),
+  # ".remark-slide-content:after" = list(
+  #   "content" = "'bit.ly/vis-uncertainty'",
+  #   "position" = "absolute",
+  #   "font-size" = "0.8em",
+  #   "bottom" = "5px",
+  #   "right" = "10px",
+  #   "height" = "40px",
+  #   "width" = "250px"
+  # ),
   ".remark-slide-number" = list(
     "color" = "#FFFFFF", 
     "opacity" = "1" 
   )
 )
+# 
+# div.my-footer {
+#     background-color: #1a1917;
+#     position: absolute;
+#     bottom: 0px;
+#     left: 0px;
+#     height: 20px;
+#     width: 100%;
+# }
+# 
+# div.my-footer span {
+#     font-size: 10pt;
+#     color: #F7F8FA;
+#     position: absolute;
+#     left: 15px;
+#     bottom: 2px;
+# }
 
 # <style type="text/css">
 # .remark-slide-content {
@@ -91,6 +108,11 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE,
   fig.align = "center", out.width = "80%", cache = TRUE)
 ```
 
+layout: true
+
+<div class="my-footer"><span>bit.ly/vis-uncertainty</span></div>
+
+---
 
 # About Me <img src="https://wesslen.netlify.app/img/portrait.jpg" width="110px" align="right" />
 
@@ -98,25 +120,21 @@ knitr::opts_chunk$set(warning = FALSE, message = FALSE,
 
 * Lead natural lanuage processing (NLP) team
 
-* Chief Data Scientist Organization, Enterprise Data & Strategy Governance
+* Chief Data Scientist Organization, Enterprise Data Strategy & Governance
 
 --
 
 #### This presentation: UNC Charlotte Ribarsky Center and School of Data Science
 
-* Taught Spring/Fall 2019 DSBA5122 Visual Analytics ([dsba5122.com](https://dsba5122.com))
-
 * [20+ peer reviewed publications](https://scholar.google.com/citations?user=F40SbCkAAAAJ&hl=en) with 20+ UNCC research collaborators
 
 * Human-computer interaction, visual analytics, information visualization, computational social science, cognitive science, psychology
 
+* Taught Spring/Fall 2019 DSBA5122 Visual Analytics ([dsba5122.com](https://dsba5122.com))
+
 * Special thanks to [Wenwen Dou](https://webpages.uncc.edu/~wdou1/), [Alireza Karduni](https://www.karduni.com/), and [Doug Markant](http://www.markantlab.org/)
 
 The views expressed herein are those of the presenter; they do not necessarily reflect the views of author's employer or any other group or individual.
-
---
-
-<p align="right">This presentation is available at this url</p>
 
 ???
 
@@ -126,7 +144,9 @@ The views expressed herein are those of the presenter; they do not necessarily r
 
 class: center, middle
 
-<img src="./img/uncertainty.png" width=650 height=550>
+background-image: url("./img/uncertainty.png")
+background-position: center
+background-size: contain
 
 ???
 
@@ -138,19 +158,32 @@ From COVID-19 to gamestop stocks to suez canal
 
 class: center, middle, inverse
 
-# Why does data science frequently ignore uncertainty?
+# If uncertainty is important, why is it so frequently ignored in data analyses?
 
 ---
 
-# Thesis
+class: center, middle, inverse
 
-Recent advances in communicating uncertainty in the fields human-computer interaction and information visualizations provide ample opportunities to better integrate uncertainty with data science methods to enable better decision-making.
+# Can better uncertainty representations enable better decision-making?
 
-* probabilities are hard => frequency framing and contrual theory
+---
 
-* classic statistics (e.g., p values) are confusing => bootstrapping and animation (e.g., hops)
+<img src="./img/pu-uncertainty.jpeg">
+[Xiaoying Pu](https://www.notion.so/0c7c890ee6e44ac3886b28842c515df2?v=f5de2064ed60483da033f036de7ab52f)
 
-* mental models are formulated from assumptions augmented by learning through data => Bayesian analysis (e.g., visualizing, estimating models, or cognitive processes)
+Recent advances in communicating uncertainty in the fields **human-computer interaction** and **information visualizations** provide opportunities to better incorporate uncertainty into data science for better decision-making on the data.
+
+---
+
+# Talk outline
+
+1. Probabilities are hard => frequency framing and HOPs
+
+2. Classic statistics (like p values or CI's) are confusing => cognitive categories and bootstrapping
+
+3. Mental models are formulated from assumptions augmented by learning through data => Bayesian analysis (e.g., visualizing, estimating models, or cognitive processes)
+
+4. Recent research in UNCC's Ribarsky Center for Visual Analytics
 
 ---
 
@@ -161,6 +194,10 @@ class: center, middle, inverse
 ---
 
 
+<img src="./img/kahneman-tversky.jpeg">
+
+???
+
 Uncertainty
 
 * Knightian Uncertainty
@@ -168,8 +205,6 @@ Uncertainty
 * Entropy / information theory
 
 * Frequentist: p-value, NHST
-
----
 
 Decision-making: "choice between two or more competing courses of action" (Balleine, 2007 and Padilla et al., 2020)
 
@@ -179,15 +214,12 @@ Choose dual-process framework: type 1 and type 2
 
 ---
 
-Lead to common errors
+# cognitive biases
 
-* Frequency framing
+[give an example of 1 of their classic ones with probabilities]
 
-* Cognitive categories
 
 ---
-
-# Frequency framing
 
 <img src="./img/frequency-framing-covid.png">
 
@@ -196,6 +228,13 @@ Numbers Actually Mean?
 By Carl Zimmer and Keith Collins
 March 3, 2021](https://www.nytimes.com/interactive/2021/03/03/science/vaccine-efficacy-coronavirus.html)
 
+---
+
+# Hypothetical outcome plots
+
+<img src="./img/hop1.png">
+
+Hullman, Resnick and Adar (2015); Padilla, Hullman, and Kay (2020) 
 
 ---
 
@@ -207,24 +246,16 @@ class: center, middle
 
 class: center, middle, inverse
 
-# Bootstrapping
+# Classical uncertainty measurements are confusing
 
 
 ---
 
 # Why error bars aren't enough
 
-Do palmer penguins (on average) weigh differently?
+<img src="./img/error-bars.jpg">
 
-```{r}
-# take average
-library(palmerpenguins)
-
-palmerpenguins::penguins %>%
-  group_by(species) %>%
-  summarise(mean=mean(body_mass_g, na.rm = TRUE)) %>%
-  arrange(desc(mean))
-```
+[insert image of classic frequentist error bars, confidence intervals]
 
 ???
 
@@ -232,40 +263,70 @@ Take average.
 
 ---
 
-# Do palmer
+# Dichomotous thinking
 
-```{r}
-palmerpenguins::penguins %>%
-  select(species, body_mass_g) %>%
-  group_by(species) %>%
-  summarise_all(funs(mean, sd), na.rm=TRUE) %>%
-  arrange(desc(mean)) 
-```
-???
-
-why error bars aren't enough.
+[insert image of why p-values can lead to dichomtomous thinking]
 
 ---
 
-class: center, middle
+# Cognitive categories: Hurricane forecasting
 
-<img src="./img/bar.gif" width=650 height=550>
-
-Kim & Heer, EuroVis 2019
+<img src="./img/katrina.jpeg">
 
 ---
 
-Bootstrapped Sampling
+# Cognitive categories: Hurricane forecasting
 
-* Show HOPs => Attribute substitution
+<img src="./img/hurricane2.jpeg">
 
-.bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[
-The only way to write good code is to write tons of bad code first. 
-Feeling shame about bad code stops you from getting to good code
+Liu et al.; Padilla, Hullman, and Kay (2020) 
 
-.tr[
-— Hadley Wickham
-]]
+---
+
+# Bootstrapping
+
+.pull-left[
+Classic frequentist
+
+* parametric
+
+* xxx
+
+* xxx
+]
+.pull-right[
+
+Bootstrapping
+
+* non-parametric
+
+* focus on effect size
+
+* xxxx
+
+]
+
+<!-- class: center, middle -->
+
+<!-- <img src="./img/bar.gif" width=650 height=550> -->
+
+<!-- Kim & Heer, EuroVis 2019 -->
+
+<!-- --- -->
+
+<!-- Bootstrapped Sampling -->
+
+<!-- * Show HOPs => Attribute substitution -->
+
+<!-- .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[ -->
+<!-- The only way to write good code is to write tons of bad code first.  -->
+<!-- Feeling shame about bad code stops you from getting to good code -->
+
+<!-- .tr[ -->
+<!-- — Hadley Wickham -->
+<!-- ]] -->
+
+<!-- --- -->
 
 ---
 
@@ -297,23 +358,25 @@ class: center, middle
 
 <img src="./img/boot4.png">
 
----
+<!-- --- -->
 
-class: center, middle
+<!-- class: center, middle -->
 
-<img src="./img/bootstrapping.gif" width=10% height=10%>
+<!-- <img src="./img/bootstrapping.gif" width=10% height=10%> -->
 
---
+<!-- -- -->
 
-<img src="./img/boxplot.gif" width=25% height=25%>
+<!-- <img src="./img/boxplot.gif" width=25% height=25%> -->
 
 ---
 
 class: center, middle, inverse
 
-<img src="./img/Bayes_transparent_30x40_horiz_attrib.png" width=75% height=75%>
+# Bayesian analysis
 
 > “When my information changes, I alter my conclusions. What do you do, sir?" - John Maynard Keynes
+
+<img src="./img/Bayes_transparent_30x40_horiz_attrib.png" width=25% height=25%>
 
 ---
 
@@ -326,7 +389,8 @@ class: center, middle
 ---
 class: center, middle
 
-<img src="./img/uncertainty-qual.png" width=100% height=100%>
+<img src="./img/uncertainty-qual.png" width=53% height=53%>
+
 [Barclay et al., 1977](https://files.eric.ed.gov/fulltext/ED153329.pdf)
 
 
@@ -334,7 +398,8 @@ class: center, middle
 class: center, middle
 
 <img src="./img/prob.jpeg" width=100% height=100%>
----
+
+???
 
 Bayesian analysis assesses the uncertainty of the hypothesis in light of the observed data, and a frequentist analysis assesses the uncertainty of the observed data in light of an assumed hypothesis.
 
@@ -352,23 +417,18 @@ class: center, middle
 
 ---
 
-# Equity premium puzzle
-
-
-
----
-
 class: middle, center, inverse
 
-# Future work
+# Active research
 
 ---
 
 # Bayesian cognitive modeling
 
-<img src="./img/linecone.gif" width=45% height=45%>
+<img src="./img/linecone.gif">
 
-Karduni, Markant, Wesslen, and Dou (InfoVis 2020)
+Karduni, Markant, Wesslen, and Dou (InfoVis 2020); 
+Wesslen, Markant, Karduni and Dou (VisPsych 2020 workshop)
 
 ???
 
@@ -383,21 +443,59 @@ This framework also allows us to identify when people systematically fail to adj
 
 ---
 
-# Uncertain NLP
+# Uncertainty in identifying misinformation
+
+<img src="./img/misinformation.png">
+
+Karduni, Wesslen, Markant, and Dou (In Review; ACM CSCW 2021)
 
 ---
 
-# Rstats plots / references
+# Equity premium puzzle and myopic loss aversion
 
-* Matthew Kay
+.pull-left[
 
-* Jessica Hullman
+]
+.pull-right[
 
-* 
+]
 
-*
-
+Wesslen, Karduni, Markant, and Dou (In Review; IEEE Vis 2021)
 
 ---
 
-Questions and Thank you!
+# Key takeaways
+
+1. xxxx
+
+2. xxxx
+
+3. xxxx
+
+---
+
+# Thank you and questions!
+
+Resources for learning more about uncertainty visualizations
+
+.pull-left[
+# Packages / tools
+
+* Bootstrapping: `rsample`
+
+* Bayesian: `rstan` + `tidybayes`, `brms`, `pymc3` 
+
+* Uncertainty: `ggdist`
+
+]
+
+.pull-right[
+# References
+
+* paper 1
+
+* paper 2
+
+* paper 3
+]
+

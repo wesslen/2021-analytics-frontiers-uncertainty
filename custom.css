@@ -1,72 +1,28 @@
 
+div.my-footer {
+    background-color: #1a1917;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    height: 20px;
+    width: 100%;
+}
 
-/* Extra CSS */
-.red {
-  color: red;
+div.my-footer span {
+    font-size: 10pt;
+    color: #F7F8FA;
+    position: absolute;
+    left: 15px;
+    bottom: 2px;
 }
-.small {
-  font-size: 70%;
-}
-.large {
-  font-size: 150%;
-}
-.xlarge {
-  font-size: 250%;
-  vertical-align: middle;
-}
-.full-width {
-  display: flex;
-  width: 100%;
-  flex: 1 1 auto;
-}
-.remark-slide-content:after {
-  content: 'bit.ly/vis-uncertainty';
-  position: absolute;
-  font-size: 0.4em;
-  bottom: 5px;
-  right: 10px;
-  height: 40px;
-  width: 250px;
-}
+
 .remark-slide-number {
-  color: #FFFFFF;
-  opacity: 1;
-}
-
-
-/* Extra CSS */
-.red {
-  color: red;
-}
-.small {
-  font-size: 70%;
-}
-.large {
-  font-size: 150%;
-}
-.xlarge {
-  font-size: 250%;
-  vertical-align: middle;
-}
-.full-width {
-  display: flex;
-  width: 100%;
-  flex: 1 1 auto;
-}
-.remark-slide-content:after {
-  content: 'bit.ly/vis-uncertainty';
+  bottom: 16px;
+  opacity: 0.5;
   position: absolute;
-  font-size: 0.8em;
-  bottom: 5px;
-  right: 10px;
-  height: 40px;
-  width: 250px;
+  right: 15px;
+  bottom: 25px;
 }
-.remark-slide-number {
-  color: #FFFFFF;
-  opacity: 1;
-}
-
 
 /* Extra CSS */
 .red {
@@ -86,17 +42,4 @@
   display: flex;
   width: 100%;
   flex: 1 1 auto;
-}
-.remark-slide-content:after {
-  content: 'bit.ly/vis-uncertainty';
-  position: absolute;
-  font-size: 0.8em;
-  bottom: 5px;
-  right: 10px;
-  height: 40px;
-  width: 250px;
-}
-.remark-slide-number {
-  color: #FFFFFF;
-  opacity: 1;
 }
