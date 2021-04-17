@@ -118,7 +118,7 @@ layout: true
 
 #### Day job: Bank of America
 
-* Lead natural lanuage processing (NLP) team
+* Lead natural language processing (NLP) team
 
 * Chief Data Scientist Organization, Enterprise Data Strategy & Governance
 
@@ -207,13 +207,17 @@ magick::image_read_pdf("./img/vis.pdf",
 
 # Talk outline
 
-1. Probabilities are hard => frequency framing and HOPs
+- Probabilities are hard => frequency framing
 
-2. Error bars are not enough => cognitive categories and bootstrapping
+- Error bars are not enough => HOPs
 
-3. Frequentist statistics (like p values or CI's) are confusing => Bayesian analysis (e.g., visualizing, estimating models, or cognitive processes)
+- Classical statistics (like p values or CI's) are confusing => cognitive categories 
 
-4. Recent research in UNCC's Ribarsky Center for Visual Analytics
+- Non-parametric => bootstrapping
+
+- Bayesian analysis 
+
+- Recent research in UNCC's Ribarsky Center for Visual Analytics
 
 ---
 
@@ -275,17 +279,40 @@ March 3, 2021](https://www.nytimes.com/interactive/2021/03/03/science/vaccine-ef
 
 ---
 
-# Hypothetical outcome plots
+class: center, middle, inverse
 
-<img src="./img/hop1.png">
-
-Hullman, Resnick and Adar (2015); Padilla, Hullman, and Kay (2020) 
+# Error bars are not enough
 
 ---
 
-class: center, middle
+How likely is it that B will be greater than A if many more draws are taken?
+.pull-left[
+<img src="./img/error-bar.png">
+]
 
-<img src="./img/dotplot.gif">
+--
+.pull-right[
+<img src="./img/hops.gif">
+]
+
+[UW Interactive Data Lab](https://medium.com/hci-design-at-uw/hypothetical-outcomes-plots-experiencing-the-uncertain-b9ea60d7c740)
+
+<!-- Hullman, Resnick and Adar (2015); Padilla, Hullman, and Kay (2020)  -->
+
+---
+
+<img src="./img/nyt-hops.png">
+
+--
+
+.pull-left[
+<img src="./img/nyt-hops1.gif">
+]
+.pull-right[
+<img src="./img/nyt-hops2.gif">
+]
+
+[UW Interactive Data Lab (Alex Kale and Jessica Hullman)](https://medium.com/@uwdata/hypothetical-outcome-plots-hops-help-users-separate-signal-from-noise-870d4e2b75d7)
 
 ---
 
@@ -331,7 +358,13 @@ Liu et al.; Padilla, Hullman, and Kay (2020)
 
 ---
 
+class: center, middle, inverse
+
 # Bootstrapping
+
+---
+
+# Assumptions
 
 .pull-left[
 Classic frequentist
@@ -353,28 +386,6 @@ Bootstrapping
 * xxxx
 
 ]
-
-<!-- class: center, middle -->
-
-<!-- <img src="./img/bar.gif" width=650 height=550> -->
-
-<!-- Kim & Heer, EuroVis 2019 -->
-
-<!-- --- -->
-
-<!-- Bootstrapped Sampling -->
-
-<!-- * Show HOPs => Attribute substitution -->
-
-<!-- .bg-washed-green.b--dark-green.ba.bw2.br3.shadow-5.ph4.mt5[ -->
-<!-- The only way to write good code is to write tons of bad code first.  -->
-<!-- Feeling shame about bad code stops you from getting to good code -->
-
-<!-- .tr[ -->
-<!-- — Hadley Wickham -->
-<!-- ]] -->
-
-<!-- --- -->
 
 ---
 
@@ -471,6 +482,16 @@ class: center, middle
 
 <img src="./img/bayesian.jpeg" width=70% height=70%>
 
+[The Economist](https://projects.economist.com/us-2020-forecast/president/how-this-works)
+
+---
+
+class: center, middle
+
+<img src="./img/economist2.png" width=70% height=70%>
+
+[The Economist](https://projects.economist.com/us-2020-forecast/president/how-this-works)
+
 ---
 
 class: center, middle
@@ -512,16 +533,38 @@ Karduni, Wesslen, Markant, and Dou (In Review; ACM CSCW 2021)
 
 ---
 
-# Equity premium puzzle and myopic loss aversion
+# Myopic loss aversion
 
-.pull-left[
-
-]
-.pull-right[
-
-]
+<img src="./img/myopic-loss-aversion.png">
 
 Wesslen, Karduni, Markant, and Dou (In Review; IEEE Vis 2021)
+
+---
+
+# Myopic loss aversion
+
+<img src="./img/myopic-loss-aversion2.png">
+
+Wesslen, Karduni, Markant, and Dou (In Review; IEEE Vis 2021)
+
+
+---
+
+# Myopic loss aversion
+
+<img src="./img/myopic-loss-aversion3.png">
+
+Wesslen, Karduni, Markant, and Dou (In Review; IEEE Vis 2021)
+
+
+---
+
+# Myopic loss aversion
+
+<img src="./img/myopic-loss-aversion4.png">
+
+Wesslen, Karduni, Markant, and Dou (In Review; IEEE Vis 2021)
+
 
 ---
 
