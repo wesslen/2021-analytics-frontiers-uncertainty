@@ -34,7 +34,7 @@ meta() %>%
 
 
 ```{r xaringanExtra-freezeframe, echo=FALSE}
-xaringanExtra::use_freezeframe()
+#xaringanExtra::use_freezeframe()
 xaringanExtra::use_tachyons()
 xaringanExtra::use_scribble()
 ```
@@ -69,8 +69,8 @@ extra_css <- list(
   #   "width" = "250px"
   # ),
   ".remark-slide-number" = list(
-    "color" = "#FFFFFF", 
-    "opacity" = "1" 
+    "color" = "#FFFFFF",
+    "opacity" = "1"
   )
 )
 # 
@@ -114,7 +114,7 @@ layout: true
 
 ---
 
-# About Me <img src="https://wesslen.netlify.app/img/portrait.jpg" width="110px" align="right" />
+# Introduction <img src="https://wesslen.netlify.app/img/portrait.jpg" width="110px" align="right" />
 
 #### Day job: Bank of America
 
@@ -132,7 +132,7 @@ layout: true
 
 * Taught Spring/Fall 2019 DSBA5122 Visual Analytics ([dsba5122.com](https://dsba5122.com))
 
-* Special thanks to [Wenwen Dou](https://webpages.uncc.edu/~wdou1/), [Alireza Karduni](https://www.karduni.com/), and [Doug Markant](http://www.markantlab.org/)
+* Collaborators: [Wenwen Dou](https://webpages.uncc.edu/~wdou1/), [Alireza Karduni](https://www.karduni.com/), [Doug Markant](http://www.markantlab.org/)
 
 The views expressed herein are those of the presenter; they do not necessarily reflect the views of author's employer or any other group or individual.
 
@@ -158,9 +158,30 @@ From COVID-19 to gamestop stocks to suez canal
 
 class: center, middle, inverse
 
-# If uncertainty is important, why is it so frequently ignored in data analyses?
+# Why is uncertainty often ignored in data analysis?
 
 ---
+
+# Data Journalism
+
+<img src="./img/nyt-point.jpeg">
+
+---
+
+# Data Analytics
+
+[point estimate -- averages]
+
+---
+
+# Data Science
+
+<img src="./img/ner_results.png">
+
+[Sebastian Ruder](https://ruder.io/state-of-transfer-learning-in-nlp/)
+
+---
+
 
 class: center, middle, inverse
 
@@ -175,13 +196,22 @@ Recent advances in communicating uncertainty in the fields **human-computer inte
 
 ---
 
+```{r height=9,width=8}
+magick::image_read_pdf("./img/vis.pdf",
+                       pages = 1)
+
+#magick::image_rotate(img, degrees=90)
+```
+
+---
+
 # Talk outline
 
 1. Probabilities are hard => frequency framing and HOPs
 
-2. Classic statistics (like p values or CI's) are confusing => cognitive categories and bootstrapping
+2. Error bars are not enough => cognitive categories and bootstrapping
 
-3. Mental models are formulated from assumptions augmented by learning through data => Bayesian analysis (e.g., visualizing, estimating models, or cognitive processes)
+3. Frequentist statistics (like p values or CI's) are confusing => Bayesian analysis (e.g., visualizing, estimating models, or cognitive processes)
 
 4. Recent research in UNCC's Ribarsky Center for Visual Analytics
 
@@ -193,8 +223,11 @@ class: center, middle, inverse
 
 ---
 
+class: center, middle
 
-<img src="./img/kahneman-tversky.jpeg">
+<img src="./img/probabilities1.png">
+
+[Justin Gross (Washington Post)](https://www.washingtonpost.com/news/monkey-cage/wp/2016/11/29/how-to-better-communicate-election-forecasts-in-one-simple-chart/?noredirect=on&utm_term=.aa4aba18cf7b)
 
 ???
 
@@ -212,12 +245,24 @@ argument: rise of visualization / hci best way to communicate uncertainty in dat
 
 Choose dual-process framework: type 1 and type 2
 
+People are very good at ignoring uncertainty... but it's especially true when we provide bad uncertainty representations" - Matthew Kay https://youtu.be/E1kSnWvqCw0
+
 ---
 
-# cognitive biases
+class: center, middle
 
-[give an example of 1 of their classic ones with probabilities]
+<img src="./img/probabilities2.png">
 
+[Justin Gross (Washington Post)](https://www.washingtonpost.com/news/monkey-cage/wp/2016/11/29/how-to-better-communicate-election-forecasts-in-one-simple-chart/?noredirect=on&utm_term=.aa4aba18cf7b)
+
+
+---
+
+# Frequency framing
+
+<img src="./img/frequency.png">
+
+[Claus Wilke](https://clauswilke.com/dataviz/visualizing-uncertainty.html)
 
 ---
 
@@ -248,18 +293,21 @@ class: center, middle, inverse
 
 # Classical uncertainty measurements are confusing
 
-
 ---
 
-# Why error bars aren't enough
+<img src="./img/classical.png">
 
-<img src="./img/error-bars.jpg">
-
-[insert image of classic frequentist error bars, confidence intervals]
+[Claus Wilke](https://clauswilke.com/dataviz/visualizing-uncertainty.html)
 
 ???
 
-Take average.
+* uniform distribution?
+
+* within bar bias? ()
+
+* what if non-normal? [Correll & Gleicher, 2014](https://graphics.cs.wisc.edu/Papers/2014/CG14/Preprint.pdf)
+
+* dichomotomous thinking
 
 ---
 
@@ -269,13 +317,13 @@ Take average.
 
 ---
 
-# Cognitive categories: Hurricane forecasting
+# Cognitive categories
 
 <img src="./img/katrina.jpeg">
 
 ---
 
-# Cognitive categories: Hurricane forecasting
+# Hurricane forecasting
 
 <img src="./img/hurricane2.jpeg">
 
@@ -358,6 +406,12 @@ class: center, middle
 
 <img src="./img/boot4.png">
 
+---
+
+class: center, middle
+
+<img src="./img/bootstrap-demo-1.gif">
+
 <!-- --- -->
 
 <!-- class: center, middle -->
@@ -393,6 +447,13 @@ class: center, middle
 
 [Barclay et al., 1977](https://files.eric.ed.gov/fulltext/ED153329.pdf)
 
+---
+
+class: center, middle
+
+<img src="./img/Pherson-fig17-1-p187.png" width=70% height=70%>
+
+Pherson
 
 ---
 class: center, middle
@@ -477,6 +538,8 @@ Wesslen, Karduni, Markant, and Dou (In Review; IEEE Vis 2021)
 # Thank you and questions!
 
 Resources for learning more about uncertainty visualizations
+
+* References: [Matthew Kay](http://www.mjskay.com/), [Jessica Hullman](http://users.eecs.northwestern.edu/~jhullman/), [Lace Padilla](http://space.ucmerced.edu/home), [Claus Wilke](https://clauswilke.com/) among others!
 
 .pull-left[
 # Packages / tools
