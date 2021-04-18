@@ -94,6 +94,8 @@ From COVID-19 to gamestop stocks to suez canal
 
 * these unexpected events foster uncertainty
 
+
+
 ---
 
 class: center, middle, inverse
@@ -118,10 +120,24 @@ class: center, middle, inverse
 
 &lt;img src="./img/ner_results.png"&gt;
 
-[Sebastian Ruder](https://ruder.io/state-of-transfer-learning-in-nlp/)
+[Performance on Named Entity Recognition (NER) on CoNLL-2003 (English) over time: Sebastian Ruder](https://ruder.io/state-of-transfer-learning-in-nlp/)
 
 ---
 
+# Why not visualize uncertainty?
+
+#### Cognitively burdensome
+#### User won't understand it
+#### Implies inappropriate precision
+#### Not integral to task
+#### Undermines author's credibility
+#### Hard to calculate
+#### Lack of good visual techniques
+#### Hard to evaluate (unclear goals)
+
+[Jessica Hullman, Why Authors Don't Visualize Uncertainty (TVCG 2019)](https://ieeexplore.ieee.org/abstract/document/8805422)
+
+---
 
 class: center, middle, inverse
 
@@ -142,17 +158,17 @@ Recent advances in communicating uncertainty in the fields **human-computer inte
 
 # Talk outline
 
-- Probabilities are hard =&gt; frequency framing
+### Probabilities are hard
 
-- Error bars are not enough =&gt; HOPs
+### Error bars are not enough
 
-- Classical statistics (like p values or CI's) are confusing =&gt; cognitive categories 
+### That interval may not mean what you think
 
-- Non-parametric =&gt; bootstrapping
+### Pull yourself up from your *bootstraps*
 
-- Bayesian analysis 
+### Turn to the dark side: Bayesian analysis 
 
-- Recent research in UNCC's Ribarsky Center for Visual Analytics
+### Research from UNCC's Ribarsky Center for Visual Analytics
 
 ---
 
@@ -205,7 +221,9 @@ class: center, middle
 
 ---
 
-&lt;img src="./img/frequency-framing-covid.png"&gt;
+class: center, middle
+
+&lt;img src="./img/efficacy1.png" height=75% width=75%&gt;
 
 [What Do Vaccine Efficacy
 Numbers Actually Mean?
@@ -218,12 +236,18 @@ class: center, middle, inverse
 
 # Error bars are not enough
 
+&lt;img src="./img/error-error.jpeg"&gt;
+
 ---
 
-How likely is it that B will be greater than A if many more draws are taken?
+class: center, middle
+
+#### How likely is it that B will be greater than A if many more draws are taken?
 .pull-left[
-&lt;img src="./img/error-bar.png"&gt;
+&lt;img src="./img/error-bar.png" height=130% width=130%&gt;
 ]
+
+
 
 --
 .pull-right[
@@ -233,6 +257,17 @@ How likely is it that B will be greater than A if many more draws are taken?
 [UW Interactive Data Lab](https://medium.com/hci-design-at-uw/hypothetical-outcomes-plots-experiencing-the-uncertain-b9ea60d7c740)
 
 &lt;!-- Hullman, Resnick and Adar (2015); Padilla, Hullman, and Kay (2020)  --&gt;
+
+???
+
+
+* uniform distribution?
+
+* within bar bias? ()
+
+* what if non-normal? [Correll &amp; Gleicher, 2014](https://graphics.cs.wisc.edu/Papers/2014/CG14/Preprint.pdf)
+
+* dichomotomous thinking
 
 ---
 
@@ -253,35 +288,43 @@ How likely is it that B will be greater than A if many more draws are taken?
 
 class: center, middle, inverse
 
-# Classical uncertainty measurements are confusing
+# That interval may not mean what you think
+
+Why Frequentist statistics are confusing
 
 ---
 
-&lt;img src="./img/classical.png"&gt;
+class: center, middle
+
+&lt;img src="./img/ci-frequentist-expl-1.png" width=70% height=70%&gt;
 
 [Claus Wilke](https://clauswilke.com/dataviz/visualizing-uncertainty.html)
 
+
 ???
 
-* uniform distribution?
+Frequency interpretation of a confidence interval. Confidence intervals (CIs) are best understood in the context of repeated sampling. For each sample, a specific confidence interval either includes or excludes the true parameter, here the mean. However, if we sample repeatedly, then the confidence intervals (shown here are 68% confidence intervals, corresponding to sample mean +/- standard error) include the true mean approximately 68% of the time.
 
-* within bar bias? ()
+A frequentist confidence interval answers the question: “How certain are we that the true parameter value is not zero?”
 
-* what if non-normal? [Correll &amp; Gleicher, 2014](https://graphics.cs.wisc.edu/Papers/2014/CG14/Preprint.pdf)
+whereas: A Bayesian credible interval answers the question: “Where do we expect the true parameter value to lie?”
 
-* dichomotomous thinking
+In practice, however, Bayesian and frequentist estimates are often quite similar. An advantage of the Bayesian approach is that it emphasizes thinking about the magnitude of an effect, whereas the frequentist thinking emphasizes a binary perspective of an effect either existing or not.
 
----
-
-# Dichomotous thinking
-
-[insert image of why p-values can lead to dichomtomous thinking]
 
 ---
 
-# Cognitive categories
+# Problems with p-values
 
-&lt;img src="./img/katrina.jpeg"&gt;
+&lt;img src="./img/nhst.jpeg" width=140% height=140%&gt;
+
+Pierre Dragicevic's [Fair Statistical Communication in HCI](https://hal.inria.fr/hal-01377894/document)
+
+---
+
+# Dichotomous thinking
+
+&lt;img src="./img/katrina.jpeg" height=70% width=70%&gt;
 
 ---
 
@@ -299,28 +342,11 @@ class: center, middle, inverse
 
 ---
 
-# Assumptions
+class: center, middle
 
-.pull-left[
-Classic frequentist
+&lt;img src="./img/classical.png" height=90% width=90%&gt;
 
-* parametric
-
-* xxx
-
-* xxx
-]
-.pull-right[
-
-Bootstrapping
-
-* non-parametric
-
-* focus on effect size
-
-* xxxx
-
-]
+[Claus Wilke](https://clauswilke.com/dataviz/visualizing-uncertainty.html)
 
 ---
 
@@ -332,25 +358,13 @@ class: center, middle
 
 class: center, middle
 
-&lt;img src="./img/boot1.gif"&gt;
+&lt;img src="./img/boot-1.gif"&gt;
 
 ---
 
 class: center, middle
 
-&lt;img src="./img/boot2.gif"&gt;
-
----
-
-class: center, middle
-
-&lt;img src="./img/boot3.gif"&gt;
-
----
-
-class: center, middle
-
-&lt;img src="./img/boot4.png"&gt;
+&lt;img src="./img/boot-2.png"&gt;
 
 ---
 
@@ -374,11 +388,176 @@ class: center, middle, inverse
 
 # Bayesian analysis
 
-&gt; “When my information changes, I alter my conclusions. What do you do, sir?" - John Maynard Keynes
+&lt;img src="./img/starwars.jpeg"&gt;
 
-&lt;img src="./img/Bayes_transparent_30x40_horiz_attrib.png" width=25% height=25%&gt;
+[@john_t_ormerod](https://twitter.com/john_t_ormerod/status/1181456582619451392?s=20)
 
 ---
+
+class: center, middle
+
+&lt;img src="./img/xkcd-bayesian.png"&gt;
+
+---
+
+class: center, middle
+
+&lt;img src="./img/xkcd-bayesian2.png" width=120% height=120%&gt;
+
+---
+
+class: center, middle
+
+&lt;img src="./img/bayesian.jpeg" width=70% height=70%&gt;
+
+[The Economist](https://projects.economist.com/us-2020-forecast/president/how-this-works)
+
+???
+
+Bayesian analysis assesses the uncertainty of the hypothesis in light of the observed data, and a frequentist analysis assesses the uncertainty of the observed data in light of an assumed hypothesis.
+
+https://www.bayesrulesbook.com/chapter-1.html#thinking-like-a-bayesian
+
+---
+
+class: center, middle
+
+&lt;img src="./img/economist2.png" width=70% height=70%&gt;
+
+[The Economist](https://projects.economist.com/us-2020-forecast/president/how-this-works)
+
+---
+
+class: middle, center, inverse
+
+# Active research
+
+
+
+---
+
+# Bayesian cognitive modeling
+
+&lt;img src="./img/linecone.gif"&gt;
+
+Karduni, Markant, Wesslen, and Dou (InfoVis 2020)
+
+???
+
+Bayesian cognitive modeling provide a normative benchmark for how beliefs should change depending on the strength of the evidence and participants’ uncertainty. 
+
+For instance, a person who is confident that variables are negatively correlated may only shift their beliefs a small amount after seeing a dataset with a positive sample correlation. 
+
+A second person who is highly uncertain about the relationship, however, may be more strongly influenced by the same data and report posterior beliefs that are closely matched to the sample correlation. 
+
+This framework also allows us to identify when people systematically fail to adjust their beliefs as predicted by the Bayesian model.
+
+
+---
+
+# Uncertainty in identifying misinformation
+
+&lt;img src="./img/misinformation.png"&gt;
+
+Karduni, Wesslen, Markant, and Dou (In Review; ACM CSCW 2021)
+
+---
+
+# Myopic loss aversion
+
+&lt;img src="./img/myopic-loss-aversion.png" height=50% width=50%&gt;
+
+Wesslen, Karduni, Markant, and Dou (In Review; IEEE Vis 2021)
+
+---
+
+# Myopic loss aversion
+
+&lt;img src="./img/myopic-loss-aversion2.png" height=50% width=50%&gt;
+
+Wesslen, Karduni, Markant, and Dou (In Review; IEEE Vis 2021)
+
+
+---
+
+# Myopic loss aversion
+
+&lt;img src="./img/myopic-loss-aversion3.png"&gt;
+
+Wesslen, Karduni, Markant, and Dou (In Review; IEEE Vis 2021)
+
+
+---
+
+# Myopic loss aversion
+
+&lt;img src="./img/myopic-loss-aversion4.png"&gt;
+
+Wesslen, Karduni, Markant, and Dou (In Review; IEEE Vis 2021)
+
+---
+
+class: center, middle, inverse
+
+# Final thoughts
+
+---
+
+class: center, middle
+
+&lt;img src="./img/hcai1.jpeg"&gt;
+
+[Ben Schneiderman: Human-Centered Artificial Intelligence](https://hcil.umd.edu/human-centered-ai/)
+
+---
+
+class: center, middle
+
+&lt;img src="./img/hcai2.png"&gt;
+
+[Ben Schneiderman: Human-Centered Artificial Intelligence](https://hcil.umd.edu/human-centered-ai/)
+
+---
+
+# Key takeaways
+
+### Be thoughtful about uncertainty 
+
+### Think beyond your college (Frequentist) stats class
+
+### Better understanding of uncertainty, better human-AI collaboration?
+
+---
+
+# Thank you and questions!
+
+### Resources for learning more about uncertainty visualizations
+
+* References: [Matthew Kay](http://www.mjskay.com/), [Jessica Hullman](http://users.eecs.northwestern.edu/~jhullman/), [Lace Padilla](http://space.ucmerced.edu/home), [Claus Wilke](https://clauswilke.com/) among others!
+
+.pull-left[
+### Packages / tools
+
+* Bootstrapping: `rsample`
+
+* Bayesian: `rstan` + `tidybayes`, `brms`, `pymc3` 
+
+* Uncertainty: `ggdist`
+
+]
+
+.pull-right[
+### References
+
+* Padilla, Kay, and Hullman (2020): [Uncertainty Visualization](https://psyarxiv.com/ebd6r/)
+
+* Hullman et al. (2019): [In Pursuit of Error: A Survey of Uncertainty Visualization Evaluation](https://idl.cs.washington.edu/files/2019-UncertaintyEval-InfoVis.pdf)
+
+* Bhatt et al. (2021): [Uncertainty as a Form of Transparency: Measuring, Communicating, and Using Uncertainty](https://arxiv.org/abs/2011.07586)
+]
+
+---
+
 
 class: center, middle
 
@@ -405,140 +584,6 @@ Pherson
 class: center, middle
 
 &lt;img src="./img/prob.jpeg" width=100% height=100%&gt;
-
-???
-
-Bayesian analysis assesses the uncertainty of the hypothesis in light of the observed data, and a frequentist analysis assesses the uncertainty of the observed data in light of an assumed hypothesis.
-
-https://www.bayesrulesbook.com/chapter-1.html#thinking-like-a-bayesian
----
-
-class: center, middle
-
-&lt;img src="./img/bayesian.jpeg" width=70% height=70%&gt;
-
-[The Economist](https://projects.economist.com/us-2020-forecast/president/how-this-works)
-
----
-
-class: center, middle
-
-&lt;img src="./img/economist2.png" width=70% height=70%&gt;
-
-[The Economist](https://projects.economist.com/us-2020-forecast/president/how-this-works)
-
----
-
-class: center, middle
-&lt;div align="center"&gt; &lt;blockquote class="twitter-tweet"&gt;&lt;p lang="en" dir="ltr"&gt;One useful mental model for statistics: every bit of certainty you achieve has to either be earned with data or bought with assumptions, and you don’t often know how much the assumptions have cost you.&lt;/p&gt;&amp;mdash; Sean J. Taylor (@seanjtaylor) &lt;a href="https://twitter.com/seanjtaylor/status/1369170496655220740?ref_src=twsrc%5Etfw"&gt;March 9, 2021&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt; &lt;/div&gt;
-
----
-
-class: middle, center, inverse
-
-# Active research
-
----
-
-# Bayesian cognitive modeling
-
-&lt;img src="./img/linecone.gif"&gt;
-
-Karduni, Markant, Wesslen, and Dou (InfoVis 2020); 
-Wesslen, Markant, Karduni and Dou (VisPsych 2020 workshop)
-
-???
-
-Bayesian cognitive modeling provide a normative benchmark for how beliefs should change depending on the strength of the evidence and participants’ uncertainty. 
-
-For instance, a person who is confident that variables are negatively correlated may only shift their beliefs a small amount after seeing a dataset with a positive sample correlation. 
-
-A second person who is highly uncertain about the relationship, however, may be more strongly influenced by the same data and report posterior beliefs that are closely matched to the sample correlation. 
-
-This framework also allows us to identify when people systematically fail to adjust their beliefs as predicted by the Bayesian model.
-
-
----
-
-# Uncertainty in identifying misinformation
-
-&lt;img src="./img/misinformation.png"&gt;
-
-Karduni, Wesslen, Markant, and Dou (In Review; ACM CSCW 2021)
-
----
-
-# Myopic loss aversion
-
-&lt;img src="./img/myopic-loss-aversion.png"&gt;
-
-Wesslen, Karduni, Markant, and Dou (In Review; IEEE Vis 2021)
-
----
-
-# Myopic loss aversion
-
-&lt;img src="./img/myopic-loss-aversion2.png"&gt;
-
-Wesslen, Karduni, Markant, and Dou (In Review; IEEE Vis 2021)
-
-
----
-
-# Myopic loss aversion
-
-&lt;img src="./img/myopic-loss-aversion3.png"&gt;
-
-Wesslen, Karduni, Markant, and Dou (In Review; IEEE Vis 2021)
-
-
----
-
-# Myopic loss aversion
-
-&lt;img src="./img/myopic-loss-aversion4.png"&gt;
-
-Wesslen, Karduni, Markant, and Dou (In Review; IEEE Vis 2021)
-
-
----
-
-# Key takeaways
-
-1. xxxx
-
-2. xxxx
-
-3. xxxx
-
----
-
-# Thank you and questions!
-
-Resources for learning more about uncertainty visualizations
-
-* References: [Matthew Kay](http://www.mjskay.com/), [Jessica Hullman](http://users.eecs.northwestern.edu/~jhullman/), [Lace Padilla](http://space.ucmerced.edu/home), [Claus Wilke](https://clauswilke.com/) among others!
-
-.pull-left[
-# Packages / tools
-
-* Bootstrapping: `rsample`
-
-* Bayesian: `rstan` + `tidybayes`, `brms`, `pymc3` 
-
-* Uncertainty: `ggdist`
-
-]
-
-.pull-right[
-# References
-
-* paper 1
-
-* paper 2
-
-* paper 3
-]
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="libs/remark-latest.min.js"></script>
