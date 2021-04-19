@@ -375,9 +375,11 @@ class: center, middle
 <img src="./img/hops.gif">
 ]
 
-### Can animation help individuals better experience uncertainty?
+**Hypothetical outcome plots**
 
-[UW Interactive Data Lab](https://medium.com/hci-design-at-uw/hypothetical-outcomes-plots-experiencing-the-uncertain-b9ea60d7c740)
+#### Can animation help individuals better experience uncertainty?
+
+[UW Interactive Data Lab](https://medium.com/hci-design-at-uw/hypothetical-outcomes-plots-experiencing-the-uncertain-b9ea60d7c740) / [Hullman, Resnick and Adar, PLOS One 2015](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0142444)
 
 <!-- Hullman, Resnick and Adar (2015); Padilla, Hullman, and Kay (2020)  -->
 
@@ -569,17 +571,10 @@ A second person who is highly uncertain about the relationship, however, may be 
 This framework also allows us to identify when people systematically fail to adjust their beliefs as predicted by the Bayesian model.
 
 
----
-
-# Uncertainty in identifying misinformation
-
-<img src="./img/misinformation.png">
-
-Karduni, Wesslen, Markant, and Dou (In Review; ACM CSCW 2021)
 
 ---
 
-# Myopic loss aversion
+class: center, middle
 
 <img src="./img/myopic-loss-aversion.png" height=50% width=50%>
 
@@ -587,7 +582,7 @@ Wesslen, Karduni, Markant, and Dou (In Review; IEEE Vis 2021)
 
 ---
 
-# Myopic loss aversion
+class: center, middle
 
 <img src="./img/myopic-loss-aversion2.png" height=50% width=50%>
 
@@ -596,16 +591,12 @@ Wesslen, Karduni, Markant, and Dou (In Review; IEEE Vis 2021)
 
 ---
 
-# Myopic loss aversion
-
 <img src="./img/myopic-loss-aversion3.png">
 
 Wesslen, Karduni, Markant, and Dou (In Review; IEEE Vis 2021)
 
 
 ---
-
-# Myopic loss aversion
 
 <img src="./img/myopic-loss-aversion4.png">
 
@@ -677,6 +668,15 @@ class: center, middle
 class: middle, center, inverse
 
 # Appendix
+
+
+---
+
+# Uncertainty in identifying misinformation
+
+<img src="./img/misinformation.png">
+
+Karduni, Wesslen, Markant, and Dou (In Review; ACM CSCW 2021)
 
 ---
 
