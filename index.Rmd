@@ -132,6 +132,8 @@ layout: true
 
 * Taught Spring/Fall 2019 DSBA5122 Visual Analytics ([dsba5122.com](https://dsba5122.com))
 
+* Collaborators: [Wenwen Dou](https://webpages.uncc.edu/~wdou1/), [Alireza Karduni](https://www.karduni.com/), [Doug Markant](http://www.markantlab.org/)
+
 The views expressed herein are those of the presenter; they do not necessarily reflect the views of author's employer or any other group or individual.
 
 ???
@@ -162,19 +164,19 @@ class: center, middle, inverse
 
 ---
 
-# Data Journalism
+# Data journalism
 
 <img src="./img/nyt-point.jpeg">
 
 ---
 
-# Data Analytics
+# Data analytics
 
-[point estimate -- averages]
+<img src="./img/tableau.jpeg">
 
 ---
 
-# Data Science
+# Artificial intelligence (e.g., NLP)
 
 <img src="./img/ner_results.png">
 
@@ -348,6 +350,14 @@ class: center, middle, inverse
 # Error bars are not enough
 
 <img src="./img/error-error.jpeg">
+
+---
+
+class: center, middle
+
+<img src="./img/correll.png">
+
+[Correll and Gleicher, TVCG 2014](https://graphics.cs.wisc.edu/Papers/2014/CG14/Preprint.pdf)
 
 ---
 
