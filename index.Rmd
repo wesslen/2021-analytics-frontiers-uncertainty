@@ -537,7 +537,7 @@ knitr::include_graphics("./img/line-cone1.png")
 
 ---
 
-# Correlation judgment
+# Correlation judgement
 
 ```{r, out.width = "800px"}
 knitr::include_graphics("./img/line-cone2.png")
@@ -547,9 +547,9 @@ knitr::include_graphics("./img/line-cone2.png")
 
 ---
 
-# MTurk Experiments
+# Bayesian cognitive modeling
 
-```{r, out.width = "800px"}
+```{r, out.width = "900px"}
 knitr::include_graphics("./img/line-cone.gif")
 ```
 
@@ -565,7 +565,7 @@ A second person who is highly uncertain about the relationship, however, may be 
 
 This framework also allows us to identify when people systematically fail to adjust their beliefs as predicted by the Bayesian model.
 
-
+Three MTurk experiments where we tested line-cone interactive technique built in D3 (javascript)
 
 ---
 
@@ -597,9 +597,15 @@ Wesslen, Karduni, Markant, and Dou (In Review)
 
 ---
 
+# MTurk Experiment
+
 <img src="./img/myopic-loss-aversion4.png">
 
 Wesslen, Karduni, Markant, and Dou (In Review)
+
+???
+
+Bayesian 66% and 95% credible intervals for means by visualization condition
 
 ---
 
