@@ -6,14 +6,14 @@
     <meta name="author" content="Ryan Wesslen / ryanwesslen.com" />
     <meta name="description" content="Uncertainty visualizations for improving data science decision-making"/>
     <meta name="generator" content="xaringan and remark.js"/>
-    <meta name="github-repo" content="wesslen/uncc-uncertainty"/>
-    <meta name="twitter:title" content="Uncertainty visualizations for improving data science decision-making"/>
+    <meta name="github-repo" content="wesslen/2021-analytics-frontiers-uncertainty"/>
+    <meta name="twitter:title" content="Uncertainty visualizations for improving data science decision-making: How I learned to stop worrying and love uncertainty (by visualizing it)"/>
     <meta name="twitter:description" content="Uncertainty visualizations for improving data science decision-making"/>
     <meta name="twitter:url" content="uncc-frontiers-uncertainty.netlify.app"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:creator" content="@ryanwesslen"/>
     <meta name="twitter:site" content="@ryanwesslen"/>
-    <meta property="og:title" content="Uncertainty visualizations for improving data science decision-making"/>
+    <meta property="og:title" content="Uncertainty visualizations for improving data science decision-making: How I learned to stop worrying and love uncertainty (by visualizing it)"/>
     <meta property="og:description" content="Uncertainty visualizations for improving data science decision-making"/>
     <meta property="og:url" content="uncc-frontiers-uncertainty.netlify.app"/>
     <meta property="og:type" content="website"/>
@@ -104,7 +104,16 @@ class: center, middle, inverse
 
 ???
 
-by uncertainty i mean not certain outcome.
+uncertainty refers to our lack of knowledge about something.
+
+the term uncertainty can have many meanings and avoid philosophical debates:
+* risk vs. uncertainty from frank knight in economics
+* entropy from shannon's information theory
+* alea-toric (inherent noise/randomness) vs ep-is-tem-ic (lack sufficient data)
+
+focus on more traditional measurements what is a probability and understanding what are confidence intervals or bayesian statistics
+
+but let's first focus on tendencies to ignore uncertainty
 
 ---
 
@@ -112,11 +121,23 @@ by uncertainty i mean not certain outcome.
 
 &lt;img src="./img/nyt-point.jpeg"&gt;
 
+???
+
+simple headlines and bullet points that may obfuscate what we don't know about the data
+
+
+
 ---
 
 # Data analytics
 
-&lt;img src="./img/tableau.jpeg"&gt;
+&lt;img src="./img/tableau.png"&gt;
+
+???
+
+or in industry where we need data analytics dashboards to summarize information like simple averages or even forecast sales.
+
+where we think uncertainty may "be too busy" or "confusing" for executives and prefer to sweep under the rug what we don't know
 
 ---
 
@@ -125,6 +146,12 @@ by uncertainty i mean not certain outcome.
 &lt;img src="./img/ner_results.png"&gt;
 
 [Performance on Named Entity Recognition (NER) on CoNLL-2003 (English) over time: Sebastian Ruder](https://ruder.io/state-of-transfer-learning-in-nlp/)
+
+???
+
+or even in AI like NLP
+
+
 
 ---
 
@@ -138,8 +165,23 @@ by uncertainty i mean not certain outcome.
 #### Hard to calculate
 #### Lack of good visual techniques
 #### Hard to evaluate (unclear goals)
+#### Unclear if error in data vs uncertainty
 
 [Jessica Hullman, Why Authors Don't Visualize Uncertainty (TVCG 2019)](https://ieeexplore.ieee.org/abstract/document/8805422)
+
+???
+
+1. too busy or cognitively burdening - maybe non-expert?
+
+2. precision vs simplicity
+
+3. hard to calculate: what the heck is a confidence interval anyways?
+
+4. uncertainty visualizations of old are antiquated and things like error bars may be misinterpreted and need better uncertainty representations
+
+5. how do we know if the uncertainty visualization is effective? 
+
+6. ryan -- in industry many companies struggle at data quality and remain fixated on deterministic to ensure "numbers align" and are "correct"
 
 ---
 
@@ -147,12 +189,22 @@ class: center, middle, inverse
 
 # Can better uncertainty representations enable better decision-making?
 
+"People are very good at ignoring uncertainty... but it's especially true when we provide bad uncertainty representations" - Matthew Kay
+
+???
+
+
+Decision-making: "choice between two or more competing courses of action" (Balleine, 2007 and Padilla et al., 2020)
+
+argument: rise of visualization / hci best way to communicate uncertainty in data science (see padilla et al)
+
+
 ---
 
 &lt;img src="./img/pu-uncertainty.jpeg"&gt;
-[Xiaoying Pu](https://www.notion.so/0c7c890ee6e44ac3886b28842c515df2?v=f5de2064ed60483da033f036de7ab52f)
+[Xiaoying Pu, Matthew Kay](https://www.notion.so/0c7c890ee6e44ac3886b28842c515df2?v=f5de2064ed60483da033f036de7ab52f)
 
-Recent advances in communicating uncertainty in the fields **human-computer interaction** and **information visualizations** provide opportunities to better incorporate uncertainty into data science for better decision-making on the data.
+Advances in communicating uncertainty in the fields **information visualizations**, **visual analytics**, and **human-computer interaction** provide opportunities to better incorporate uncertainty into data science for better decisions.
 
 ---
 
@@ -184,13 +236,10 @@ Uncertainty
 
 * Frequentist: p-value, NHST
 
-Decision-making: "choice between two or more competing courses of action" (Balleine, 2007 and Padilla et al., 2020)
 
-argument: rise of visualization / hci best way to communicate uncertainty in data science (see padilla et al)
 
 Choose dual-process framework: type 1 and type 2
 
-People are very good at ignoring uncertainty... but it's especially true when we provide bad uncertainty representations" - Matthew Kay https://youtu.be/E1kSnWvqCw0
 
 ---
 
@@ -216,9 +265,8 @@ class: center, middle
 &lt;img src="./img/efficacy1.png" height=75% width=75%&gt;
 
 [What Do Vaccine Efficacy
-Numbers Actually Mean?
-By Carl Zimmer and Keith Collins
-March 3, 2021](https://www.nytimes.com/interactive/2021/03/03/science/vaccine-efficacy-coronavirus.html)
+Numbers Actually Mean?](https://www.nytimes.com/interactive/2021/03/03/science/vaccine-efficacy-coronavirus.html) 
+By Carl Zimmer and Keith Collins, March 3, 2021
 
 ---
 
@@ -227,6 +275,30 @@ class: center, middle, inverse
 # Frequentist statistics are confusing
 
 &lt;img src="./img/inigo.jpeg"&gt;
+
+---
+
+# What is a confidence interval? 
+
+&lt;img src="./img/confidence-interval.png"&gt;
+
+[Claus Wilke](https://clauswilke.com/dataviz/visualizing-uncertainty.html)
+
+???
+
+chocolate bar ratings. 
+
+The observations (shown as jittered green dots) that make up the sample represent expert ratings of 125 chocolate bars from manufacturers in Canada, rated on a scale from 1 (unpleasant) to 5 (elite). 
+
+The large orange dot represents the mean of the ratings. Error bars indicate, from top to bottom, twice the standard deviation, twice the standard error (standard deviation of the mean), and 80%, 95%, and 99% confidence intervals of the mean.
+
+standard error is approximately given by the sample standard deviation divided by the square root of the sample size
+
+confidence intervals are calculated by multiplying the standard error with small, constant values
+
+For example, a 95% confidence interval extends approximately two times the standard error in either direction from the mean. Therefore, larger samples tend to have narrower standard errors and confidence intervals, even if their standard deviation is the same. 
+
+Error bars are convenient because they allow us to show many estimates with their uncertainties all at once. 
 
 ---
 
@@ -357,6 +429,10 @@ class: center, middle, inverse
 
 # Bootstrapping
 
+&lt;img src="./img/bootstrap.jpeg" height=40% width=40%&gt;
+
+Bradley Efron's 1979 "Bootstrap Methods: Another Look at the Jackknife" 
+
 ---
 
 class: center, middle
@@ -467,18 +543,31 @@ class: middle, center, inverse
 
 ![](https://gvu.gatech.edu/sites/default/files/impact_award_ribarsky.jpg)
 
-Dr. William (Bill) Ribarsky, former Bank of America Endowed Professor
+Dr. William (Bill) Ribarsky, former UNCC Bank of America Endowed Chair
 
 Research at UNCC Ribarsky Center for Visual Analytics (viscenter.uncc.edu)
+
+???
+
+I'd like to finish with recent research at UNCC Ribarsky Center for Visual Analytics, which was recently renamed after Dr. Bill Ribarsky, the former UNCC BofA Endowed Chair and Professor who sadly passed in 2017.
+
+Bill had an amazing transformative career where he helped revolutionize visualization research, first in Georgia Tech where he researched VR and interactive visualizations in the 80s - 90s and then transformed UNCC into a powerhouse of the burdening fields of visualization when he joined in 2004.
+
+His enduring partnerships with practice including companies like Bank of America as well as government agencies like the Department of Homeland Security, DOE, U.S. Department of Transportation, EPA showed how relevant vis research is to practioners and we're proud to continue the legacy Bill paved.
 
 ---
 
 # Correlation judgement
 
-
 &lt;img src="./img/line-cone1.png" width="800px" style="display: block; margin: auto;" /&gt;
 
-[Karduni, Markant, Wesslen, and Dou (InfoVis 2020)](https://arxiv.org/abs/2008.00058)
+[Karduni, Markant, Wesslen, and Dou (IEEE InfoVis 2020)](https://arxiv.org/abs/2008.00058)
+
+???
+
+In one article published in last year's IEEE InfoVis conference -- the premier academic conference for data vis research -- our research group studied the problem of uncertainty visualizations and their effects in basic correlation judgments.
+
+Data speaks for itself? Really? What about prior beliefs that may influence or effect perception of data?
 
 ---
 
@@ -486,7 +575,15 @@ Research at UNCC Ribarsky Center for Visual Analytics (viscenter.uncc.edu)
 
 &lt;img src="./img/line-cone2.png" width="800px" style="display: block; margin: auto;" /&gt;
 
-[Karduni, Markant, Wesslen, and Dou (InfoVis 2020)](https://arxiv.org/abs/2008.00058)
+[Karduni, Markant, Wesslen, and Dou (IEEE InfoVis 2020)](https://arxiv.org/abs/2008.00058)
+
+???
+
+Instead of data being objective, prior beliefs may constrain perception where individuals who believe contrary to the data may become 
+
+This work is important is because it's a big step towards our ultimate goal: identifying, measuring and hopefully mitigating confirmation bias, which is the tendency to seek only information that confirms ones prior beliefs.
+
+In other applications we've examined this to identifying misinformation on twitter and foresee many other applications.
 
 ---
 
@@ -494,7 +591,7 @@ Research at UNCC Ribarsky Center for Visual Analytics (viscenter.uncc.edu)
 
 &lt;img src="./img/line-cone.gif" width="900px" style="display: block; margin: auto;" /&gt;
 
-[Karduni, Markant, Wesslen, and Dou (InfoVis 2020)](https://arxiv.org/abs/2008.00058)
+[Karduni, Markant, Wesslen, and Dou (IEEE InfoVis 2020)](https://arxiv.org/abs/2008.00058)
 
 ???
 
@@ -508,15 +605,6 @@ This framework also allows us to identify when people systematically fail to adj
 
 Three MTurk experiments where we tested line-cone interactive technique built in D3 (javascript)
 
----
-
-class: center, middle
-
-# Investing for Retirement
-
-&lt;img src="./img/myopic-loss-aversion.png" height=46% width=46%&gt;
-
-Wesslen, Karduni, Markant, and Dou (In Review)
 
 ---
 
@@ -528,6 +616,17 @@ class: center, middle
 
 Wesslen, Karduni, Markant, and Dou (In Review)
 
+???
+
+In our most recent experiment, we leveraged an important idea from Behavorial Economist -- notably 2017 nobel prize winner richard thaler and his then student shlomo benartzi -- on the idea of myopic loss aversion, which is the idea that more we evaluate our portfolios, the higher our chance of seeing a loss and, thus, the more susceptible we are to loss aversion.
+
+in a 1999 experiment, benartzi and thaler found that the way we frame investment returns for long term investing -- like retirement over 30 years -- can have a huge effect on basic allocation decision on stocks versus bonds. their experiment was a powerful explanation for the deep puzzle of the equity premium puzzle in economics, in which economists' mathematical models could not explain the excessively high historical outperformance of stocks over much safer bonds. 
+
+for their simple "pencil-and-paper" experiment, benartzi and thaler asked retirement participants to decide on how to allocate their retirement (invest over 30 years) but randomly choose half of participants to view short term returns, which due to ideas like prospect theory participants were scared by the short term negative losses more than the larger upside of bonds. 
+
+investors seemed to be scared by the negative returns and inable to do the mental accounting that the 1 year returns to 30 years, participants under allocated to stocks and thus likely made in efficient decisions for retirement.
+
+in theory if investing over 30 years, optimal decision is to allocate more to stocks -- key to note true for retirement accounts where need is long term and this may not translate for average investors who's planning horizon is much shorter or may have uncertainty due to unexpected liquidity needs.
 
 ---
 
@@ -535,10 +634,13 @@ Wesslen, Karduni, Markant, and Dou (In Review)
 
 Wesslen, Karduni, Markant, and Dou (In Review)
 
+???
+
+what we want to know is could we replicate their findings in an incentivized mturk study and could more recent uncertainty visualizations like HOPs or dot plots nudge participants to allocate more to stocks
 
 ---
 
-# MTurk Experiment
+# Average Stock Allocation with Bayesian Uncertainty
 
 &lt;img src="./img/myopic-loss-aversion4.png"&gt;
 
@@ -572,19 +674,49 @@ class: center, middle
 
 ---
 
+class: center, middle
+
+.pull-left[
+&lt;img src="./img/uncertainty-paper.png"&gt;
+
+[Bhatt et al., 2021](https://arxiv.org/abs/2011.07586)
+
+]
+.pull-right[
+"Uncertainty is **crucial** yet **often overlooked** in the context of ML-assisted, or automated, decision-making (Schum et al. 2014; Kochenderfer
+2015)"
+
+"We seek to **encourage researchers to study uncertainty** as an alternative form of algorithmic **transparency** and practitioners to communicate **uncertainty estimates** to stakeholders."
+
+"We posit uncertainty can be useful for obtaining **fairer models**, **improving decision-making**, and **building trust** in automated systems."
+
+]
+
+---
+
 # Key takeaways
 
 ### Be thoughtful about uncertainty 
 
+#### - Precision vs accuracy
+
+#### - Don't automatically sweep under the rug; learn and experiment!
+
 ### Think beyond your college (Frequentist) stats class
 
+#### - Computational methods (bootstrap and Bayesian) will accelerate in adoption
+
+#### - New uncertainty tools are emerging and easier to incorporate
+
 ### Better understanding of uncertainty, better human-AI collaboration?
+
+#### - Will remain incredibly important for trust and transparency in AI
 
 ---
 
 # Thank you and questions!
 
-* Collaborators: [Wenwen Dou](https://webpages.uncc.edu/~wdou1/), [Alireza Karduni](https://www.karduni.com/), [Doug Markant](http://www.markantlab.org/)
+* UNCC Collaborators: [Wenwen Dou](https://webpages.uncc.edu/~wdou1/), [Alireza Karduni](https://www.karduni.com/), [Doug Markant](http://www.markantlab.org/)
 
 * Vis Researchers: [Matthew Kay](http://www.mjskay.com/), [Jessica Hullman](http://users.eecs.northwestern.edu/~jhullman/), [Lace Padilla](http://space.ucmerced.edu/home), [Alex Kale](http://students.washington.edu/kalea/), [Claus Wilke](https://clauswilke.com/) among others!
 
@@ -593,7 +725,7 @@ class: center, middle
 
 |       | R | Python |
 | ----------- | ----------- | ----------- |
-| Bootstrapping      | [`rsample`](https://rsample.tidymodels.org/)       | [`bootstrapped`](https://pypi.org/project/bootstrapped/)&lt;br/&gt; [`DABEST`](https://acclab.github.io/DABEST-python-docs/index.html) |
+| Bootstrap      | [`rsample`](https://rsample.tidymodels.org/)       | [`bootstrapped`](https://pypi.org/project/bootstrapped/)&lt;br/&gt; [`DABEST`](https://acclab.github.io/DABEST-python-docs/index.html) |
 | Bayesian Statistics | [`rstan`](https://mc-stan.org/users/interfaces/rstan)&lt;br /&gt;[`brms`](https://paul-buerkner.github.io/brms/)&lt;br /&gt;[`tidybayes`](http://mjskay.github.io/tidybayes/)    | [`PyMC3`](https://docs.pymc.io/) |
 | Uncertainty Visualizations | [`ggdist`](https://docs.pymc.io/D) | [`uncertainty-toolbox`](https://github.com/uncertainty-toolbox/uncertainty-toolbox) |
 
