@@ -216,7 +216,7 @@ class: center, middle
 
 class: center, middle, inverse
 
-# Probabilities are hard
+&lt;blockquote class="twitter-tweet tw-align-center" data-width="350"&gt;&lt;p lang="en" dir="ltr"&gt;Understanding uncertainty and probability is hard 🤣 &lt;a href="https://t.co/ebIEdI8DI3"&gt;https://t.co/ebIEdI8DI3&lt;/a&gt;&lt;/p&gt;&amp;mdash; Ryan Wesslen (@ryanwesslen) &lt;a href="https://twitter.com/ryanwesslen/status/1368247469411287043?ref_src=twsrc%5Etfw"&gt;March 6, 2021&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
 
 ---
 
@@ -405,7 +405,7 @@ class: center, middle
 
 &lt;img src="./img/visual-reasoning-teaser.gif" &gt;
 
-[Kale, Kay, and Hullman, IEEE Vis 2020](https://arxiv.org/abs/2007.14516)
+[Kale, Kay, and Hullman, "Visual Reasoning Strategies for Effect Size Judgments and Decisions", IEEE Vis 2020 Best Paper](https://arxiv.org/abs/2007.14516)
 
 ???
 
@@ -511,31 +511,6 @@ Bayesian analysis assesses the uncertainty of the hypothesis in light of the obs
 
 https://www.bayesrulesbook.com/chapter-1.html#thinking-like-a-bayesian
 
----
-
-class: center, middle
-
-# A / B Evaluation in UI/UX
-
-Which design reduces survey "drop-off"? [Villar, Callegaro, and Yang (2013)](https://journals.sagepub.com/doi/10.1177/0894439313497468)
-
-.pull-left[
-No progress bar (control)
-&lt;img src="./img/ui1.png" width="200px" style="display: block; margin: auto;" /&gt;
-]
-.pull-right[
-"Fast-to-slow" progress bar
-&lt;img src="./img/ui.png" width="200px" style="display: block; margin: auto;" /&gt;
-]
-
-
----
-
-class: center, middle
-
-&lt;img src="./img/kay-freq-hci.png" &gt;
-
-[Kay, Nelson, and Hekler, ACM CHI 2016](https://mucollective.northwestern.edu/files/2016-BayesIncentivesHCI-CHI.pdf)
 
 ---
 
@@ -630,6 +605,8 @@ in theory if investing over 30 years, optimal decision is to allocate more to st
 
 ---
 
+class: middle, center
+
 &lt;img src="./img/myopic-loss-aversion3.png"&gt;
 
 Wesslen, Karduni, Markant, and Dou (In Review)
@@ -640,11 +617,15 @@ what we want to know is could we replicate their findings in an incentivized mtu
 
 ---
 
-# Average Stock Allocation with Bayesian Uncertainty
+class: middle, center
 
-&lt;img src="./img/myopic-loss-aversion4.png"&gt;
+#### MTurk stock allocation decisions by visualization and evaluation period. Bayesian regression posterior means and 66% / 95% credible intervals
+
+&lt;img src="./img/myopic-loss-aversion4.png" width="500px" style="display: block; margin: auto;" /&gt;
 
 Wesslen, Karduni, Markant, and Dou (In Review)
+
+#### R packages used [`ggdist`](https://mjskay.github.io/ggdist/), [`tidybayes`](http://mjskay.github.io/tidybayes/), and [`brms`](https://paul-buerkner.github.io/brms/) packages
 
 ???
 
@@ -694,23 +675,21 @@ class: center, middle
 
 ---
 
-# Key takeaways
-
 ### Be thoughtful about uncertainty 
 
-#### - Precision vs accuracy
+#### - Speed vs precision
 
 #### - Don't automatically sweep under the rug; learn and experiment!
 
 ### Think beyond your college (Frequentist) stats class
 
-#### - Computational methods (bootstrap and Bayesian) will accelerate in adoption
+#### - Computational methods (bootstrap and Bayesian) can be very helpful
 
-#### - New uncertainty tools are emerging and easier to incorporate
+#### - New uncertainty open source packages emerging and easier to use
 
-### Better understanding of uncertainty, better human-AI collaboration?
+### Better communicate uncertainty, better human-AI collaboration?
 
-#### - Will remain incredibly important for trust and transparency in AI
+#### - Incredibly important for trust and transparency in AI
 
 ---
 
@@ -718,7 +697,7 @@ class: center, middle
 
 * UNCC Collaborators: [Wenwen Dou](https://webpages.uncc.edu/~wdou1/), [Alireza Karduni](https://www.karduni.com/), [Doug Markant](http://www.markantlab.org/)
 
-* Vis Researchers: [Matthew Kay](http://www.mjskay.com/), [Jessica Hullman](http://users.eecs.northwestern.edu/~jhullman/), [Lace Padilla](http://space.ucmerced.edu/home), [Alex Kale](http://students.washington.edu/kalea/), [Claus Wilke](https://clauswilke.com/) among others!
+* Vis Researchers: [Matthew Kay](http://www.mjskay.com/), [Jessica Hullman](http://users.eecs.northwestern.edu/~jhullman/), [Lace Padilla](http://space.ucmerced.edu/home), [Alex Kale](http://students.washington.edu/kalea/), [Michael Correll](https://correll.io/), among others!
 
 .pull-left[
 #### Packages / tools
@@ -784,6 +763,33 @@ Pherson
 class: center, middle
 
 &lt;img src="./img/prob.jpeg" width=100% height=100%&gt;
+
+---
+
+
+class: center, middle
+
+# A / B Evaluation in UI/UX
+
+Which design reduces survey "drop-off"? [Villar, Callegaro, and Yang (2013)](https://journals.sagepub.com/doi/10.1177/0894439313497468)
+
+.pull-left[
+No progress bar (control)
+&lt;img src="./img/ui1.png" width="200px" style="display: block; margin: auto;" /&gt;
+]
+.pull-right[
+"Fast-to-slow" progress bar
+&lt;img src="./img/ui.png" width="200px" style="display: block; margin: auto;" /&gt;
+]
+
+
+---
+
+class: center, middle
+
+&lt;img src="./img/kay-freq-hci.png" &gt;
+
+[Kay, Nelson, and Hekler, "Research-Centered Design of Statistics: Why Bayesian Statistics Better Fit the Culture and Incentives of HCI", ACM CHI 2016 Best Honorable Mention](https://mucollective.northwestern.edu/files/2016-BayesIncentivesHCI-CHI.pdf)
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="libs/remark-latest.min.js"></script>
