@@ -284,9 +284,9 @@ March 3, 2021](https://www.nytimes.com/interactive/2021/03/03/science/vaccine-ef
 
 class: center, middle, inverse
 
-# That interval may not mean what you think
+# Frequentist statistics are confusing
 
-Why Frequentist statistics are confusing
+<img src="./img/inigo.jpeg">
 
 ---
 
@@ -299,22 +299,26 @@ class: center, middle
 
 ???
 
-Frequency interpretation of a confidence interval. Confidence intervals (CIs) are best understood in the context of repeated sampling. For each sample, a specific confidence interval either includes or excludes the true parameter, here the mean. However, if we sample repeatedly, then the confidence intervals (shown here are 68% confidence intervals, corresponding to sample mean +/- standard error) include the true mean approximately 68% of the time.
+Frequentist Confidence intervals (CIs) are best understood in the context of repeated sampling. For each sample, a specific confidence interval either includes or excludes the true parameter, here the mean. However, if we sample repeatedly, then the confidence intervals (shown here are 68% confidence intervals, corresponding to sample mean +/- standard error) include the true mean approximately 68% of the time.
 
-A frequentist confidence interval answers the question: “How certain are we that the true parameter value is not zero?”
+A frequentist confidence interval: “How certain are we that the true parameter value is not zero?”
 
-whereas: A Bayesian credible interval answers the question: “Where do we expect the true parameter value to lie?”
+A Bayesian credible interval: “Where do we expect the true parameter value to lie?”
 
 In practice, however, Bayesian and frequentist estimates are often quite similar. An advantage of the Bayesian approach is that it emphasizes thinking about the magnitude of an effect, whereas the frequentist thinking emphasizes a binary perspective of an effect either existing or not.
 
 
 ---
 
-# Problems with p-values
+# Problem with null hypothesis testing
 
 <img src="./img/nhst.jpeg" width=140% height=140%>
 
 Pierre Dragicevic's [Fair Statistical Communication in HCI](https://hal.inria.fr/hal-01377894/document)
+
+???
+
+Problem not really with 
 
 ---
 
@@ -339,6 +343,8 @@ class: center, middle, inverse
 
 <img src="./img/error-error.jpeg">
 
+### Can animation help individuals better experience uncertainty?
+
 ---
 
 class: center, middle
@@ -360,12 +366,11 @@ class: center, middle
 
 --
 .pull-right[
+
 <img src="./img/hops.gif">
 ]
 
 **Hypothetical outcome plots**
-
-#### Can animation help individuals better experience uncertainty?
 
 [UW Interactive Data Lab](https://medium.com/hci-design-at-uw/hypothetical-outcomes-plots-experiencing-the-uncertain-b9ea60d7c740) / [Hullman, Resnick and Adar, PLOS One 2015](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0142444)
 
@@ -494,18 +499,26 @@ https://www.bayesrulesbook.com/chapter-1.html#thinking-like-a-bayesian
 
 ---
 
+class: center, middle
+
 # A / B Evaluation in UI/UX
 
+Which design reduces survey "drop-off"? [Villar, Callegaro, and Yang (2013)](https://journals.sagepub.com/doi/10.1177/0894439313497468)
+
 .pull-left[
-Survey with no progress bar
-[insert image]
+No progress bar (control)
+```{r, out.width = "200px"}
+knitr::include_graphics("./img/ui1.png")
+```
 ]
 .pull-right[
-Survey with "fast-to-slow" progress bar
-[insert image]
+"Fast-to-slow" progress bar
+```{r, out.width = "200px"}
+knitr::include_graphics("./img/ui.png")
+```
 ]
 
-[Villar, Callegaro, and Yang (2013)](https://journals.sagepub.com/doi/10.1177/0894439313497468)
+
 ---
 
 class: center, middle
@@ -537,7 +550,7 @@ knitr::include_graphics("./img/line-cone1.png")
 
 ---
 
-# Correlation judgement
+# Prior beliefs
 
 ```{r, out.width = "800px"}
 knitr::include_graphics("./img/line-cone2.png")
@@ -573,7 +586,7 @@ class: center, middle
 
 # Investing for Retirement
 
-<img src="./img/myopic-loss-aversion.png" height=45% width=45%>
+<img src="./img/myopic-loss-aversion.png" height=46% width=46%>
 
 Wesslen, Karduni, Markant, and Dou (In Review)
 
@@ -583,7 +596,7 @@ class: center, middle
 
 # Investing for Retirement
 
-<img src="./img/myopic-loss-aversion2.png" height=45% width=45%>
+<img src="./img/myopic-loss-aversion2.png" height=46% width=46%>
 
 Wesslen, Karduni, Markant, and Dou (In Review)
 
