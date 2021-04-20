@@ -533,6 +533,8 @@ Research at UNCC Ribarsky Center for Visual Analytics (viscenter.uncc.edu)
 knitr::include_graphics("./img/line-cone1.png")
 ```
 
+[Karduni, Markant, Wesslen, and Dou (InfoVis 2020)](https://arxiv.org/abs/2008.00058)
+
 ---
 
 # Correlation judgment
@@ -540,6 +542,8 @@ knitr::include_graphics("./img/line-cone1.png")
 ```{r, out.width = "800px"}
 knitr::include_graphics("./img/line-cone2.png")
 ```
+
+[Karduni, Markant, Wesslen, and Dou (InfoVis 2020)](https://arxiv.org/abs/2008.00058)
 
 ---
 
