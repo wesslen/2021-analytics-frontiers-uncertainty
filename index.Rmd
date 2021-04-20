@@ -258,7 +258,7 @@ argument: rise of visualization / hci best way to communicate uncertainty in dat
 <img src="./img/pu-uncertainty.jpeg">
 [Xiaoying Pu, Matthew Kay](https://www.notion.so/0c7c890ee6e44ac3886b28842c515df2?v=f5de2064ed60483da033f036de7ab52f)
 
-Advances in communicating uncertainty in the fields **information visualizations**, **visual analytics**, and **human-computer interaction** provide opportunities to better incorporate uncertainty into data science for better decisions.
+Advances in communicating uncertainty in the fields **information visualization**, **visual analytics**, and **human-computer interaction** provide opportunities to better incorporate uncertainty into data science for better decisions.
 
 ---
 
@@ -376,11 +376,13 @@ In practice, however, Bayesian and frequentist estimates are often quite similar
 
 ---
 
-# Problem with null hypothesis testing
+# Issue with null hypothesis testing
 
-<img src="./img/nhst.jpeg" width=140% height=140%>
+<img src="./img/nhst.png" width=146% height=146%>
 
 Pierre Dragicevic's [Fair Statistical Communication in HCI](https://hal.inria.fr/hal-01377894/document)
+
+[Szucs and Ioannidis, 2017: "When Null Hypothesis Significance Testing (NHST) Is Unsuitable for Research: A Reassessment"](https://www.frontiersin.org/articles/10.3389/fnhum.2017.00390/full)
 
 ???
 
