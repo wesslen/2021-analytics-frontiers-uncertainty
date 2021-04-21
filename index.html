@@ -66,13 +66,11 @@ layout: true
 
 #### This presentation: UNC Charlotte Ribarsky Center and School of Data Science
 
+* Taught Spring/Fall 2019 DSBA5122 Visual Analytics ([dsba5122.com](https://dsba5122.com))
+
 * [20+ peer reviewed publications](https://scholar.google.com/citations?user=F40SbCkAAAAJ&amp;hl=en) with 20+ UNCC research collaborators
 
 * Human-computer interaction, visual analytics, information visualization, computational social science, cognitive science, psychology
-
-* Taught Spring/Fall 2019 DSBA5122 Visual Analytics ([dsba5122.com](https://dsba5122.com))
-
-* Collaborators: [Wenwen Dou](https://webpages.uncc.edu/~wdou1/), [Alireza Karduni](https://www.karduni.com/), [Doug Markant](http://www.markantlab.org/)
 
 ---
 
@@ -117,9 +115,7 @@ but let's focus some example first
 
 ???
 
-simple headlines and bullet points that may obfuscate what we don't know about the data
-
-
+simple headlines and bullet points that rely solely on point estimates may obfuscate what we don't know about the data to the general public
 
 ---
 
@@ -139,13 +135,13 @@ where we think uncertainty may "be too busy" or "confusing" for executives and p
 
 &lt;img src="./img/ner_results.png"&gt;
 
-[Performance on Named Entity Recognition (NER) on CoNLL-2003 (English) over time: Sebastian Ruder](https://ruder.io/state-of-transfer-learning-in-nlp/)
+[Accuracy on Named Entity Recognition (NER) on CoNLL-2003 over time: Sebastian Ruder](https://ruder.io/state-of-transfer-learning-in-nlp/)
 
 ???
 
-or even in AI like NLP
+or even in AI like NLP where state-of-the-art model accuracies like this -- at timeline of models' accuracy in one natural language processing task -- named entity recognition -- on a popular benchmark dataset.
 
-
+how can we decide with confidence if one model really is better than another one without explicitly considering uncertainty?
 
 ---
 
@@ -167,7 +163,7 @@ or even in AI like NLP
 
 1. too busy or cognitively burdening - maybe non-expert?
 
-2. precision vs simplicity
+2. precision vs speed
 
 3. hard to calculate: what the heck is a confidence interval anyways?
 
@@ -190,7 +186,7 @@ class: center, middle, inverse
 
 Decision-making: "choice between two or more competing courses of action" (Balleine, 2007 and Padilla et al., 2020)
 
-argument: rise of visualization / hci best way to communicate uncertainty in data science (see padilla et al)
+argument: visualization / hci techniques provide the best way to communicate uncertainty in data science
 
 
 ---
@@ -200,6 +196,12 @@ argument: rise of visualization / hci best way to communicate uncertainty in dat
 
 Advances in communicating uncertainty in the fields **information visualization**, **visual analytics**, and **human-computer interaction** provide opportunities to better incorporate uncertainty into data science for better decisions.
 
+???
+
+in this talk, i argue that:
+
+so for this talk, i want to outline a few of these concepts. by no means will this be exhaustive and my ultimate hope is to encourage existing or aspiring data scientists to spur curiosity to study these concepts and research more in the future.
+
 ---
 
 class: center, middle
@@ -208,9 +210,9 @@ class: center, middle
 
 ???
 
-we have a three step process.
+but first, let me briefly outline the general research approach of these fields in a three step feedback process.
 
-first, we use theories from psychology, cognitive science and behavioral economics to motivate research areas for data visualization
+first, we use theories from psychology, cognitive science and behavioral economics to motivate research areas for data visualization. this could cover low level theories of decision-making like perceptual psychology where we're interested in how people perceive form, shape, and animation through low level processes. alternatively, this could also cover theories of higher level process that may require deliberate effort to process difficult information and require a choice of attention and precious processing resources.
 
 second, using computer science tools like web development, machine learning, or back end engineering like database or deploying apps we develop experiment systems for either in-lab or crowdsource experiments like MTurk. this step can sometimes take the bulk of time as it requires larger teams that have a variety of skill set to develop these stand alone, custom ui typically leveraging languages like javascript, html/css, and python.
 
@@ -240,13 +242,67 @@ i won't play the video as i'd expect the audio may not work, but i am 141% confi
 
 class: center, middle
 
+&lt;img src="./img/Sherman_Kent.png" width=50% height=50%&gt;
+
+"Father of Intelligence Analysis"
+
+???
+
+Let me introduce Sherman Kent, or the father of Intelligence Analysis. During the cold war, US intelligence agencies struggled at providing probabilistic statements in intelligence briefings as there were inconsistencies in describing the likelihood of future events.
+
+because of this, Kent established one of the first paradigm to map "words of estimative probability" or WEP's. 
+
+
+---
+class: center, middle
+
+&lt;img src="./img/uncertainty-qual.png" width=53% height=53%&gt;
+
+[Barclay et al., 1977](https://files.eric.ed.gov/fulltext/ED153329.pdf)
+
+???
+
+
+In this figure, we can see a list of such words with the dark bands being Kent's probability ranges and dots from a NATO study in which "twenty-three [NATO] officers, ranking from squadron leader to lieutenant general" were asked about how they quantify probabilistic words. 
+
+Officers were asked phrases "It is highly likely that the Soviets will invade Czechoslovakia," or "It is almost certain that the Soviets will invade Czechoslovakia," or "We believe that the Soviets will invade Czechoslovakia." and asked to quantify probabilities they perceived.
+
+---
+
+class: center, middle
+
+&lt;img src="./img/Pherson-fig17-1-p187.png" width=70% height=70%&gt;
+
+[Pherson and Pherson, 2013](https://books.google.com/books?id=_X0FHYpHDzoC&amp;pg=PA187&amp;lpg=PA187)
+
+???
+
+We can also look at a more modern version of the same study.
+
+Two things are striking - first even with the guidance of Kent's proposals, many officers had different probabilities. But even more fascinating, is the range of probabilities for different words.
+
+---
+class: center, middle
+
+&lt;img src="./img/prob.jpeg" width=100% height=100%&gt;
+
+???
+
+We can also improve these results into density ridge plots -- ggridges -- which helps us better compare across the distributions per word.
+
+In this way, we can see how for the same word, we could have vary different perceptions of the probabilties. This is critical for data scientists to realize for the need of careful, consistent lanugage in describing probabilities.
+
+---
+
+class: center, middle
+
 &lt;img src="./img/probabilities1.png"&gt;
 
 [Justin Gross (Washington Post)](https://www.washingtonpost.com/news/monkey-cage/wp/2016/11/29/how-to-better-communicate-election-forecasts-in-one-simple-chart/?noredirect=on&amp;utm_term=.aa4aba18cf7b)
 
 ???
 
-so to describe the challenge of probabilities, let's take an example from the washington post describing the potential predictions of the 2016 presidential election.
+but there are other challenges with probabilities, especially very small probabilities. let's take an example from the washington post describing the potential predictions of the 2016 presidential election.
 
 before the election, different pollsters had different predictions for Donald Trump's chance.
 
@@ -284,6 +340,22 @@ this core idea is based on the idea of "frequency framing" of visualization, pop
 
 class: center, middle
 
+&lt;img src="./img/icon-array.png" width="350px" style="display: block; margin: auto;" /&gt;
+
+#### Icon arrays and Isotypes by Otto Neurath
+
+["Understanding uncertainty: Visualizing Probabilities"](https://plus.maths.org/content/understanding-uncertainty-visualising-probabilities) by Pearson &amp; Short
+
+???
+
+or related we can use icons or "isotypes" to encode probabilities as shown in this classic chart by the austrian philosophy Ott Neurath who popularized the use of icons as a means to communicate information.
+
+this example, provides women labor force participation rates in 1930 by country. with the frequency framing, it's easier to take away how more frequently women were  
+
+---
+
+class: center, middle
+
 &lt;img src="./img/efficacy1.png" height=75% width=75%&gt;
 
 [What Do Vaccine Efficacy
@@ -300,16 +372,32 @@ class: center, middle, inverse
 
 ---
 
-class: center, middle
-&lt;img src="./img/ci.png" width=70% &gt;
+class: center
+
+&lt;img src="./img/ci.png" width=100% &gt;
+
+--
+
+&lt;img src="./img/ci-phrase.png"&gt;
+
 
 ???
 
 The large represents the estimated efficacy per with 95% confidence intervals showing lower and upper bounds
 
-Such interval sare convenient because they allow us to show many estimates with their uncertainties all at once. 
+Such intervals are convenient because they allow us to show many estimates with their uncertainties all at once. 
 
 however, a major misconception with confidence intervals is that we can interpret these intervals as where we'd expect to find the true efficacy value.
+
+---
+
+class: center
+
+&lt;img src="./img/ci.png" width=100% &gt;
+
+
+&lt;img src="./img/ci-phrase2.png" &gt;
+
 
 ---
 
@@ -649,6 +737,8 @@ Dr. William (Bill) Ribarsky, former UNCC Bank of America Endowed Chair
 
 Research at UNCC Ribarsky Center for Visual Analytics (viscenter.uncc.edu)
 
+Joint work with Wenwen Dou, Alireza Karduni, and Doug Markant
+
 ???
 
 I'd like to finish with recent research at UNCC Ribarsky Center for Visual Analytics, which was recently renamed after Dr. Bill Ribarsky, the former UNCC BofA Endowed Chair and Professor who sadly passed in 2017.
@@ -658,6 +748,8 @@ Bill had an amazing transformative career where he helped revolutionize visualiz
 His enduring partnerships with practice including companies like Bank of America as well as government agencies like the Department of Homeland Security, DOE, U.S. Department of Transportation, EPA showed how relevant vis research is to practioners and we're proud to continue the legacy Bill paved.
 
 ---
+
+class: center, middle
 
 # Correlation judgement
 
@@ -672,6 +764,8 @@ In one article published in last year's IEEE InfoVis conference -- the premier a
 Data speaks for itself? Really? What about prior beliefs that may influence or effect perception of data?
 
 ---
+
+class: center, middle
 
 # Prior beliefs
 
@@ -691,7 +785,7 @@ In other applications we've examined this to identifying misinformation on twitt
 
 class: center, middle
 
-# Line + Cone Prior Elicitation
+# Line + Cone Elicitation
 
 What is the relationship between income tax rate and poverty rate of cities?
 
@@ -898,40 +992,19 @@ class: middle, center, inverse
 
 ---
 
-# Uncertainty in identifying misinformation
+class: center, middle
+
+.pull-left[
 
 &lt;img src="./img/misinformation.png"&gt;
+[Karduni, Wesslen, Markant, and Dou](https://arxiv.org/abs/2102.13167) (In Review)
+]
+.pull-right[
+&lt;blockquote class="twitter-tweet tw-align-center" data-width="300" data-conversation="none"&gt;&lt;p lang="en" dir="ltr"&gt;We created an interface to elicit users&amp;#39; judgments and uncertainties using a visual technique. Users would 1) assess how biased tweets from a specific (anonymized) source are and 2) rate how credible that source is. They would also write down their rationale&lt;br&gt;&lt;br&gt;5/16 &lt;a href="https://t.co/LAvNUhSYGe"&gt;pic.twitter.com/LAvNUhSYGe&lt;/a&gt;&lt;/p&gt;&amp;mdash; Alireza Karduni (@don_kordeone) &lt;a href="https://twitter.com/don_kordeone/status/1366567001313918982?ref_src=twsrc%5Etfw"&gt;March 2, 2021&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+]
 
-Karduni, Wesslen, Markant, and Dou (In Review; ACM CSCW 2021)
-
----
 
 
-class: center, middle
-
-&lt;img src="./img/Sherman_Kent.png" width=50% height=50%&gt;
-
-"Father of Intelligence Analysis"
-
----
-class: center, middle
-
-&lt;img src="./img/uncertainty-qual.png" width=53% height=53%&gt;
-
-[Barclay et al., 1977](https://files.eric.ed.gov/fulltext/ED153329.pdf)
-
----
-
-class: center, middle
-
-&lt;img src="./img/Pherson-fig17-1-p187.png" width=70% height=70%&gt;
-
-Pherson
-
----
-class: center, middle
-
-&lt;img src="./img/prob.jpeg" width=100% height=100%&gt;
 
 ---
 
