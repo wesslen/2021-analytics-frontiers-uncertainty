@@ -100,20 +100,20 @@ class: center, middle, inverse
 
 uncertainty refers to our lack of knowledge about something.
 
-the term uncertainty can have many meanings and avoid philosophical debates:
+the term uncertainty can have many meanings:
 * risk vs. uncertainty from frank knight in economics
 * entropy from shannon's information theory
 * alea-toric (inherent noise/randomness) vs ep-is-tem-ic (lack sufficient data)
 
-focus on more traditional measurements what is a probability and understanding what are confidence intervals or bayesian statistics
+to avoid a long philosophical debate, in this talk i want to focus on more traditional measurements what is a probability and understanding what are confidence intervals or bayesian statistics
 
-but let's first focus on tendencies to ignore uncertainty
+but let's focus some example first
 
 ---
 
 # Data journalism
 
-&lt;img src="./img/fox-news.png"&gt;
+&lt;img src="./img/foxnews.png"&gt;
 
 ???
 
@@ -206,11 +206,35 @@ class: center, middle
 
 &lt;img src="./img/vis.png"&gt;
 
+???
+
+we have a three step process.
+
+first, we use theories from psychology, cognitive science and behavioral economics to motivate research areas for data visualization
+
+second, using computer science tools like web development, machine learning, or back end engineering like database or deploying apps we develop experiment systems for either in-lab or crowdsource experiments like MTurk. this step can sometimes take the bulk of time as it requires larger teams that have a variety of skill set to develop these stand alone, custom ui typically leveraging languages like javascript, html/css, and python.
+
+third, we implement designs for randomized controlled experiments in which participants are randomly assigned to different treatments like a visualization design or interactive feature. 
+
+this enables easier reading of the treatment effects by controlling for confounding variables along with causal inference statistics like mixed effects modeling where we may control for individual level variation across participants or trials. in addition, qualitative feedback like open-ended responses can be critical in understanding the strategies users employed to come to their decisions.
+
+with such experimental results, new theories can be developed or modified old theories, and the cycle continues.
+
+but to transition, i'd like to now focus on five core concepts related to uncertainty from vis research.
+
 ---
 
 class: center, middle, inverse
 
 &lt;blockquote class="twitter-tweet tw-align-center" data-width="350"&gt;&lt;p lang="en" dir="ltr"&gt;Understanding uncertainty and probability is hard 🤣 &lt;a href="https://t.co/ebIEdI8DI3"&gt;https://t.co/ebIEdI8DI3&lt;/a&gt;&lt;/p&gt;&amp;mdash; Ryan Wesslen (@ryanwesslen) &lt;a href="https://twitter.com/ryanwesslen/status/1368247469411287043?ref_src=twsrc%5Etfw"&gt;March 6, 2021&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+???
+
+first, is the simple notion from psychology that probabilities are hard.
+
+to indicate this, ive highlighted a hilarious tweet (via tik-tok) that provides an example of why probabilities are hard for individuals to calculate.
+
+i won't play the video as i'd expect the audio may not work, but i am 141% confident the interested viewer may enjoy it 
 
 ---
 
@@ -222,7 +246,11 @@ class: center, middle
 
 ???
 
+so to describe the challenge of probabilities, let's take an example from the washington post describing the potential predictions of the 2016 presidential election.
 
+before the election, different pollsters had different predictions for Donald Trump's chance.
+
+but looking at these probabilities, many individuals may perceive differences, namely for low probabilities, it's easier to associate them as nearly or even zero probability, especially for something like Huffington Posts's low 2%. 
 
 ---
 
@@ -232,6 +260,17 @@ class: center, middle
 
 [Justin Gross (Washington Post)](https://www.washingtonpost.com/news/monkey-cage/wp/2016/11/29/how-to-better-communicate-election-forecasts-in-one-simple-chart/?noredirect=on&amp;utm_term=.aa4aba18cf7b)
 
+???
+
+instead risk theater plots -- risk characterization theatre
+
+idea is to translate probabilities to the situtation in which if i were to give you a random ticket, what would be likelihood of seat under the same probability.
+
+we can immediately see that 2% while very low, is not equal to zero and still better frame some chance of the event occurring.
+
+can be helpful in other areas with low probabilities like health care -- for example very rare side effects to vaccines.
+
+this core idea is based on the idea of "frequency framing" of visualization, popularized by the psychologist Gert Gigerinzer
 
 ---
 
@@ -266,29 +305,19 @@ class: center, middle
 
 ???
 
-The large represents the estimated efficacy per with 95% confidence intervals showing lower and upper bounds.
+The large represents the estimated efficacy per with 95% confidence intervals showing lower and upper bounds
 
+Such interval sare convenient because they allow us to show many estimates with their uncertainties all at once. 
 
-------
-
-The observations (shown as jittered green dots) that make up the sample represent expert ratings of 125 chocolate bars from manufacturers in Canada, rated on a scale from 1 (unpleasant) to 5 (elite). 
-
-The large orange dot represents the mean of the ratings. Error bars indicate, from top to bottom, twice the standard deviation, twice the standard error (standard deviation of the mean), and 80%, 95%, and 99% confidence intervals of the mean.
-
-standard error is approximately given by the sample standard deviation divided by the square root of the sample size
-
-confidence intervals are calculated by multiplying the standard error with small, constant values
-
-For example, a 95% confidence interval extends approximately two times the standard error in either direction from the mean. Therefore, larger samples tend to have narrower standard errors and confidence intervals, even if their standard deviation is the same. 
-
-Error bars are convenient because they allow us to show many estimates with their uncertainties all at once. 
+however, a major misconception with confidence intervals is that we can interpret these intervals as where we'd expect to find the true efficacy value.
 
 ---
 
-&lt;blockquote class="twitter-tweet"&gt;&lt;p lang="en" dir="ltr"&gt;Proper confidence interval definition in the NYTimes, love to see it!&lt;br&gt;&lt;br&gt;“If scientists came up with confidence intervals for 100 different samples using this method, the efficacy would fall inside the confidence intervals in 95 of them.”&lt;a href="https://t.co/IwMSHZaGMj"&gt;https://t.co/IwMSHZaGMj&lt;/a&gt;&lt;/p&gt;&amp;mdash; Lucy D’Agostino McGowan (@LucyStats) &lt;a href="https://twitter.com/LucyStats/status/1367629174672928770?ref_src=twsrc%5Etfw"&gt;March 5, 2021&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+&lt;blockquote class="twitter-tweet tw-align-center"&gt;&lt;p lang="en" dir="ltr"&gt;Proper confidence interval definition in the NYTimes, love to see it!&lt;br&gt;&lt;br&gt;“If scientists came up with confidence intervals for 100 different samples using this method, the efficacy would fall inside the confidence intervals in 95 of them.”&lt;a href="https://t.co/IwMSHZaGMj"&gt;https://t.co/IwMSHZaGMj&lt;/a&gt;&lt;/p&gt;&amp;mdash; Lucy D’Agostino McGowan (@LucyStats) &lt;a href="https://twitter.com/LucyStats/status/1367629174672928770?ref_src=twsrc%5Etfw"&gt;March 5, 2021&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
 
 ???
 
+Or highlighted by Lucy McGowan of Wake Forest university -- great host of the podcast casual inference highly recommend -- quotes the true definition of a classical confidence interval:
 
 ---
 
@@ -301,7 +330,7 @@ class: center, middle
 
 ???
 
-Frequentist Confidence intervals (CIs) are best understood in the context of repeated sampling. For each sample, a specific confidence interval either includes or excludes the true parameter, here the mean. However, if we sample repeatedly, then the confidence intervals (shown here are 68% confidence intervals, corresponding to sample mean +/- standard error) include the true mean approximately 68% of the time.
+Such Confidence intervals (CIs) -- sometimes referred to as Frequentist confidence intervals -- are best understood in the context of repeated sampling. For each sample, a specific confidence interval either includes or excludes the true parameter, here the mean. However, if we sample repeatedly, then the confidence intervals (shown here are 68% confidence intervals, corresponding to sample mean +/- standard error) include the true mean approximately 68% of the time.
 
 A frequentist confidence interval: “How certain are we that the true parameter value is not zero?”
 
@@ -330,9 +359,9 @@ Problem with null hypothesis statistical testing or NHST
 
 * according to NHST, we're taught to look for a p-value less than 0.05 to indicate statistical significant differences between zero with 95% confidence.
 
-* in this case, we find pills 1, 3 and 4 and may even conclude pill 1 is the best since it has the lowest p -value and thus most evidence and certainty that the pill provides positive weight loss
+* in this case, we find pills 1, 3 and 4 and may even conclude pill 1 is the best since it has the lowest p -value and thus most evidence that the pill provides non-zero weight loss
 
-* i want to focus on two problems. 1 - this ignores effect size (answers which pill will reduce most weight loss) in which we'd likely want pill 4. if we used the lowest p value, we may choose pill 1 that is likely the worst option
+* but i want to focus on two problems. 1 - this ignores effect size (answers which pill will reduce most weight loss) in which we'd likely want pill 4. if we used the lowest p value, we may choose pill 1 that is likely the worst option
 
 * 2nd - we can notice the arbitrary nature of p-values in pill 2 and 3 that have nearly identical effect sizes and uncertainty but in the "black and white" world of null hypothesis testing we'd confidently reject the null in pill 3 (p value less than 0.05) but not have sufficient evidence for pill 2 and may even (wrongly) conclude pill 2 is ineffective. 
 
@@ -340,25 +369,39 @@ these points emphasize challenges identified of research associated with replica
 
 ---
 
+class: center, middle
+
 # Dichotomous thinking
 
-&lt;img src="./img/hurricane-update.png" height=120% width=120%&gt;
-
-Liu et al.; Padilla, Hullman, and Kay (2020) 
+&lt;img src="./img/katrina.jpeg" height=70% width=70%&gt;
 
 ???
 
 this highlights the susceptibility of p-values to overemphasize the world as a dichotomous or binary outcome in which things are too black and white when in fact our data has many colors. this is sometimes called "Cognitive Categories"
 
-the data visualization theory that when visual boundaries, such as isocontours and error bars, are used for continuous data, the boundaries lead people to conceptualize the data as categorical. This theory is based on work by Barbra Tversky [61], in which she proposed that visual-spatial communications are intrinsically related to thought
+this is the data visualization theory that when visual boundaries, such as isocontours and error bars, are used for continuous data, the boundaries lead people to conceptualize the data as categorical. This theory is based on work by the psychologist Barbra Tversky, in which she proposed that visual-spatial communications are intrinsically related to thought
 
-The Cone of Uncertainty is the current method used by the National Hurricane Center, and the border of the cone represents a 66% confidence interval around the mean predicted path. In numerous studies, researchers have found that viewers believe areas inside the cone are categorically different from areas outside the cone [5, 23, 55]. 
+The Cone of Uncertainty is the current method used by the National Hurricane Center, and the border of the cone represents a 66% confidence interval around the mean predicted path. In numerous studies, researchers have found that viewers believe areas inside the cone are categorically different from areas outside the cone. 
 
-When visualized with boundaries, viewers cannot ascertain that there is a distribution of uncertainty in the storm’s path. The cognitive category created by the border of the cone makes viewers believe that areas inside the cone are in the danger zone, and areas outside are relatively safe [5, 55]. 
+When visualized with boundaries, viewers cannot ascertain that there is a distribution of uncertainty in the storm’s path. The cognitive category created by the border of the cone makes viewers believe that areas inside the cone are in the danger zone, and areas outside are relatively safe. 
 
-Participants’ decisions are influenced by a subconscious categorical interpretation of the cone even when they are given instructions about how to interpret the visualization correctly and they can report the correct judgments at the end of the study [23]. The result of this inaccurate and persistent categorization may cause some people who reside just outside the cone to believe they are safe and not take preparatory actions.
+Participants’ decisions are influenced by a subconscious categorical interpretation of the cone even when they are given instructions about how to interpret the visualization correctly and they can report the correct judgments at the end of the study. The result of this inaccurate and persistent categorization may cause some people who reside just outside the cone to believe they are safe and not take preparatory actions.
 
-Ensemble hurricane paths have received some criticism because older versions can look confusing, like a plate of spaghetti (a.k.a., spaghetti plots, see Figure 1.5 right). Researchers have addressed concerns by developing a method for reconstructing the predicted paths from runs of the model [65] (see Figure 1.5 left). The paths of the reconstructed ensembles have good separation and still communicate the uncertainty in the trajectory of the storm. The other benefit of using a path reconstruction procedure is that fewer lines are needed to show the full range of outcomes, which declutters the display. In the case of hurricane forecasting, decluttering the display allows researchers to make the paths thicker and represent the intensity of the storm in color and the size of the storm with a glyph. Liu at al. [65] found that their study participants could effectively make decisions that incorporated the path, size, and intensity of the storm when it was visualized as an ensemble display
+---
+
+class: center, middle
+
+# Ensemble hurricane paths
+
+&lt;img src="./img/hurricane2.jpeg"&gt;
+
+Liu et al. (2016); [Padilla, Hullman, and Kay (2020)](https://psyarxiv.com/ebd6r/download) 
+
+???
+
+Alternatively ensemble hurricane paths that provide individual forecasted paths have received some criticism because older versions can look confusing, like a plate of spaghetti on the right. 
+
+Researchers have addressed concerns by developing a method for reconstructing the predicted paths from runs of the model like on the left. The paths of the reconstructed ensembles have good separation and still communicate the uncertainty in the trajectory of the storm. The other benefit of using a path reconstruction procedure is that fewer lines are needed to show the full range of outcomes, which declutters the display. In the case of hurricane forecasting, decluttering the display allows researchers to make the paths thicker and represent the intensity of the storm in color and the size of the storm with a glyph. In one study, researchers found that their study participants could effectively make decisions that incorporated the path, size, and intensity of the storm when it was visualized as an ensemble display
 
 ---
 
@@ -371,6 +414,10 @@ class: center, middle, inverse
 
 xkcd
 
+???
+
+the next idea i want to cover is that error bars are not enough for all situations of visualizing uncertainty.
+
 ---
 
 class: center, middle
@@ -378,6 +425,13 @@ class: center, middle
 &lt;img src="./img/correll.png"&gt;
 
 [Correll and Gleicher, TVCG 2014](https://graphics.cs.wisc.edu/Papers/2014/CG14/Preprint.pdf)
+
+???
+
+research in information visualization has explored cases in which error bars may be misinterpreted like the notion that the values within the bars are uniform or the notion of within bar bias in which participants misread classic bar plus error like on the left, mistaking for values below the bar but within the error as coming from a different population above the bar but in the same error range.
+
+instead, researchers have explored alternate encodings like the gradient plot or violin plots and in user experiments identified situations that lead to better decisions.
+
 
 ---
 
@@ -396,6 +450,10 @@ class: center, middle
 Source: Claus Wilke's [`ungeviz` package](https://wilkelab.org/ungeviz/articles/sampling-bootstrapping.html)
 
 
+???
+
+for example, using an example of chocolate ratings by country, we may be worried that classic error bars may lead to dichotomous thinking and thus overlay a gradient plot (shown on right) to concede some uncertainty around the distribution's tails and outside our error bars.
+
 ---
 
 class: center, middle
@@ -405,7 +463,13 @@ class: center, middle
 &lt;img src="./img/error-bar.png" height=130% width=130%&gt;
 ]
 
+???
 
+alternatively, other researchers have found situations in which animations may enable better experience of uncertainty. 
+
+for example, in another study participants were given the following scenario and charts. they were told that scientists have measured the concentration of two chemical solutes (A and B, each measured in parts per million) in many vials of sea water. Horizontal blue lines are the means, dashed vertical bars capture 95% of the measurements for each solute, and to assume independence.
+
+they were then asked: "how likely is it that B will be greater than A if many more draws are taken?"
 
 --
 .pull-right[
@@ -421,40 +485,16 @@ class: center, middle
 
 ???
 
+as an alternative, researchers developed the hypothetical outcome plot or HOP
+HOP. this plot has two steps. (1) Draw a sample of hypothetical outcomes (draws) from the distribution; (2) for each, make a plot that becomes one frame in an animated presentation. 
 
-* uniform distribution?
+For example, the right depicts several frames for a HOPs visualization for a single random variable. Each frame contains a horizontal bar that depicts a specific outcome, one draw for that random variable.
 
-* within bar bias? ()
+they researchers found that HOPs lead to more accurate estimates of
+properties even of very simple multivariate distributions consisting of just two and three variables, both when the variables are independent or correlated. several follow up studies have looked at HOPs in situations like identifying trends and effect size judgements, which may be critically important for making A/B decisions or evaluating different models. 
 
-* what if non-normal? [Correll &amp; Gleicher, 2014](https://graphics.cs.wisc.edu/Papers/2014/CG14/Preprint.pdf)
+But outside of classical null hypothesis testing, are there other ways to measure?
 
-* dichomotomous thinking
-
----
-
-class: center, middle
-
-&lt;img src="./img/visual-reasoning-teaser.gif" &gt;
-
-[Kale, Kay, and Hullman, "Visual Reasoning Strategies for Effect Size Judgments and Decisions", IEEE Vis 2020 Best Paper](https://arxiv.org/abs/2007.14516)
-
-???
-
-In an incentivized crowdsource study that won best paper in IEEE Vis -- the top academic conference for data visualization -- researchers studied strategies chart users rely on when making judgments and decisions from visualizations showing the effectiveness of an intervention (i.e., effect size). 
-
-visual reasoning for effect sizes = Visual t-tests
-
-They expected chart users to rely on visual distance between distributions as a proxy for effect size, ignoring the spread of distributions. 
-
-Users compared distributions of outcomes with and without intervention -- in this case whether to add a player to a hypothetical fantasy sports team.
-
-They made two decisions:
-1: How many times out of 100 do you estimate that your team would score more points with the new player than without the new player?
-2: whether or not to pay for the new player 
-
-They found that many users switch between strategies and seldom use the optimal strategy when one exists. Visualization designers should be mindful of possible strategies and how they may result in unintended readings of charts.
-
-This is critically important for making A/B decisions or evaluating different models. But how could we even get such uncertainty measurements?
 
 ---
 
@@ -506,15 +546,13 @@ class: center, middle
 
 Source: Claus Wilke's [`ungeviz` package](https://wilkelab.org/ungeviz/articles/sampling-bootstrapping.html)
 
-&lt;!-- --- --&gt;
+???
 
-&lt;!-- class: center, middle --&gt;
+we can expand this idea to statistical models -- like a simple regression model in which we can visualize the resampling and the different weights and regression fit for that "draw" using hypothetical outcome plots. in this way, we could use other visualization techniques to measure the uncertainty or even plot distributions for model fit statistics like R^2 or accuracy measures like precision, recall or F1 in classification problems.
 
-&lt;!-- &lt;img src="./img/bootstrapping.gif" width=10% height=10%&gt; --&gt;
+now while bootstrapping is a great, simple and intuitive techinque -- one of it's biggest weakness is it can only consider observed past events and indirectly assumes that only the events in the history can repeat. but instead, sometimes there are events we haven't seen before.
 
-&lt;!-- -- --&gt;
-
-&lt;!-- &lt;img src="./img/boxplot.gif" width=25% height=25%&gt; --&gt;
+alternatively, what about if we have knowledge or prior beliefs that we want to consider along with our data?
 
 ---
 
@@ -526,6 +564,23 @@ class: center, middle, inverse
 
 @john_t_ormerod
 
+???
+
+and this is where we'll move to the dark side of Bayesian analysis.
+
+built from Thomas Bayes' derived bayes rule, bayesian analysis is the counterpart to more classically "frequentist" or null hypothesis testing paradigms. 
+
+Frequentists are so named for their interpretation of probability as the long-run relative frequency of a repeatable event.
+
+Bayesians, a probability measures the relative plausibility of an event.
+
+it's reframing of proabilities to be degrees of beliefs
+
+
+
+
+so in normal data science fashion, to describe the differences between frequentists and bayesian perspectives let's consider xkcd cartoon.
+
 ---
 
 class: center, middle
@@ -534,6 +589,10 @@ class: center, middle
 
 xkcd
 
+???
+
+did the sun explode?
+
 ---
 
 class: center, middle
@@ -541,6 +600,14 @@ class: center, middle
 &lt;img src="./img/xkcd-bayesian2.png" width=100% height=100%&gt;
 
 xkcd
+
+???
+
+how do we even measure probabilities for one time events within frequentist perspective?
+
+Bayesian analysis assesses the uncertainty of the hypothesis in light of the observed data
+
+frequentist analysis assesses the uncertainty of the observed data in light of an assumed hypothesis.
 
 ---
 
@@ -552,10 +619,25 @@ class: center, middle
 
 ???
 
-Bayesian analysis assesses the uncertainty of the hypothesis in light of the observed data, and a frequentist analysis assesses the uncertainty of the observed data in light of an assumed hypothesis.
+one common place is election predictions. these are helpful as we update our beliefs about the elections as new data -- polls -- are updated.
 
-https://www.bayesrulesbook.com/chapter-1.html#thinking-like-a-bayesian
+to describe the bayesian framework, we'll use a figure from the economist and outlien the 3 step process in bayesian inference.
 
+first, we assume some prior distribution or prediction. this reflects what we belief or know about the world before looking at data.
+
+next we observe new data and can accordingly calculate the likelihood of that data.
+
+third, using both our prior and likelihood to calculate the posterior prediction. this last step is the ultimate combination of both our prior beliefs and the new data.
+
+from this perspective, it's important to consider three important points.
+
+first in bayesian analysis, we focus on distributions, especially the posterior, rather than on point estimates and uncertainty around that estimate -- as in frequentist. this is one reason we can better visualize the full posterior as opposed to frequentist uncertainty that lends itself to smoother distributions and hence simple error bars rather than detailed density plots.
+
+second, the more data we observe, the less role our priors will have. sometimes a criticism of bayesian analysis is questions on how priors are derived; which many bayesian analyses start with a uniform or uninformative prior that once we update moderate data, our posterior prediction tends to provide consistent results with frequentist estimates.
+
+last, the combination of priors with data can act as a conservative estimator, especially for low sample observations like the sun exploding -- the reason is that we can weight our prior with knowledge that can "regularize" or reweigh our data with beliefs about the population. related ideas like pooling can ensure the sub-groups values conservatively tend towards the entire population values as well too.
+
+so for the last section, i'd like to provide two experiments using bayesian analysis.
 
 ---
 
@@ -609,6 +691,18 @@ In other applications we've examined this to identifying misinformation on twitt
 
 class: center, middle
 
+# Line + Cone Prior Elicitation
+
+What is the relationship between income tax rate and poverty rate of cities?
+
+&lt;img src="./img/linecone-plot.gif" width="400px" style="display: block; margin: auto;" /&gt;
+
+Built with D3.js (javascript)
+
+---
+
+class: center, middle
+
 # Bayesian cognitive modeling
 
 &lt;img src="./img/line-cone.gif" width="900px" style="display: block; margin: auto;" /&gt;
@@ -616,6 +710,8 @@ class: center, middle
 [Karduni, Markant, Wesslen, and Dou (IEEE InfoVis 2020)](https://arxiv.org/abs/2008.00058)
 
 ???
+
+To address 
 
 Bayesian cognitive modeling provide a normative benchmark for how beliefs should change depending on the strength of the evidence and participants’ uncertainty. 
 
@@ -660,7 +756,7 @@ Wesslen, Karduni, Markant, and Dou (In Review)
 
 ???
 
-what we want to know is could we replicate their findings in an incentivized mturk study and could more recent uncertainty visualizations like HOPs or dot plots nudge participants to allocate more to stocks
+what we want to know is could we replicate their findings in an incentivized mturk study and could more recent uncertainty visualizations like HOPs or dot plots nudge participants to allocate more to stocks.
 
 ---
 
@@ -676,13 +772,25 @@ Wesslen, Karduni, Markant, and Dou (In Review)
 
 ???
 
-Bayesian 66% and 95% credible intervals for means by visualization condition
+each dot in the plot represents the mean stock allocation users decided by visualization (each row) or the evaluation period of the returns, as showed in orange for 30 years vs blue 1 year. in addition to the stock decision, using bootstrapped sampling, we conducted historical simulation of what those stock allocations would on average entail for expected rate of return. in addition, to translate these values, we also provide the hypothetical investment values at retirement for a typical 37 years who may invest for 30 years and start with 50,000 investment balance.
+
+For each mean value Bayesian 66% and 95% credible intervals as well as ploting as a density function the posterior predictions to provide the distribution shape.
+
+we made three observations. first, similar to the original study, we found that participants exhibited myopic loss aversion as they typically provided higher stock values when shown 30 year returns as opposed to 1 year returns. we can measure this by the distance between the distributions. as we can see, this difference can be about 20% allocation, and could translate into over $100,000 at retirement for an average 30 year retirement investor.
+
+second, we find in general simpler, more intuitive plots like point, interval or the original bar charts on average had higher values while more newer uncertainty visualizations like HOPs or dot plots. while somewhat disappointing, we realized that we may find differences in future studies if we modify objective to hit retirement goal (e.g., baseline retirement investment) as participants may need to hedge tail risks in the distributions as opposed to maximize the expected return in this first study.
+
+last, while we find some difference, these values are still well below our optimal values. this reflects the initial stages of this research and where future research could look at learning effects if users are provided feedback or explore-exploit behaviors if users are interactions to run what if simulations. 
 
 ---
 
 class: center, middle, inverse
 
 # Final thoughts
+
+???
+
+let me finish with my final thoughts.
 
 ---
 
@@ -692,6 +800,10 @@ class: center, middle
 
 [Ben Schneiderman: Human-Centered Artificial Intelligence](https://hcil.umd.edu/human-centered-ai/)
 
+???
+
+we typically think of artificial intelligence as a trade off between human control vs computer automation like machine learning or deep learning.
+
 ---
 
 class: center, middle
@@ -699,6 +811,12 @@ class: center, middle
 &lt;img src="./img/hcai2.png"&gt;
 
 [Ben Schneiderman: Human-Centered Artificial Intelligence](https://hcil.umd.edu/human-centered-ai/)
+
+???
+
+however, a new idea from ben schneiderman, one of the godfathers of the fields of human-computer interaction and information visualization challenges this notion. instead, schneiderman argues that future research in ai should focus more on human-centered approaches that combine both high levels of automation and high levels of human control.
+
+the purpose of such a focus will enable better AI solutions that are more reliable, safer, and more transparent for stakeholders.
 
 ---
 
@@ -719,6 +837,10 @@ class: center, middle
 "We posit uncertainty can be useful for obtaining **fairer models**, **improving decision-making**, and **building trust** in automated systems."
 
 ]
+
+???
+
+building from similar ideas, very recent research -- one recent paper by a range of researchers last month -- ML researchers are starting to incorporate the important in uncertainty research.
 
 ---
 
@@ -810,6 +932,20 @@ Pherson
 class: center, middle
 
 &lt;img src="./img/prob.jpeg" width=100% height=100%&gt;
+
+---
+
+class: center, middle
+
+&lt;img src="./img/visual-reasoning-teaser.gif" &gt;
+
+[Kale, Kay, and Hullman, "Visual Reasoning Strategies for Effect Size Judgments and Decisions", IEEE Vis 2020 Best Paper](https://arxiv.org/abs/2007.14516)
+
+???
+
+In an incentivized crowdsource study that won best paper in IEEE Vis -- the top academic conference for data visualization -- researchers studied strategies chart users rely on when making judgments and decisions from visualizations showing the effectiveness of an intervention (i.e., effect size). 
+
+visual reasoning for effect sizes = Visual t-tests
 
 ---
 
