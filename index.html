@@ -113,7 +113,7 @@ but let's first focus on tendencies to ignore uncertainty
 
 # Data journalism
 
-&lt;img src="./img/nyt-point.jpeg"&gt;
+&lt;img src="./img/fox-news.png"&gt;
 
 ???
 
@@ -222,17 +222,6 @@ class: center, middle
 
 ???
 
-Uncertainty
-
-* Knightian Uncertainty
-
-* Entropy / information theory
-
-* Frequentist: p-value, NHST
-
-
-
-Choose dual-process framework: type 1 and type 2
 
 
 ---
@@ -266,21 +255,21 @@ By Carl Zimmer and Keith Collins, March 3, 2021
 
 class: center, middle, inverse
 
-# Frequentist statistics are confusing
+# Statistics can be confusing
 
 &lt;img src="./img/inigo.jpeg"&gt;
 
 ---
 
-# What is a confidence interval? 
-
-&lt;img src="./img/confidence-interval.png"&gt;
-
-[Claus Wilke](https://clauswilke.com/dataviz/visualizing-uncertainty.html)
+class: center, middle
+&lt;img src="./img/ci.png" width=70% &gt;
 
 ???
 
-chocolate bar ratings. 
+The large represents the estimated efficacy per with 95% confidence intervals showing lower and upper bounds.
+
+
+------
 
 The observations (shown as jittered green dots) that make up the sample represent expert ratings of 125 chocolate bars from manufacturers in Canada, rated on a scale from 1 (unpleasant) to 5 (elite). 
 
@@ -293,6 +282,13 @@ confidence intervals are calculated by multiplying the standard error with small
 For example, a 95% confidence interval extends approximately two times the standard error in either direction from the mean. Therefore, larger samples tend to have narrower standard errors and confidence intervals, even if their standard deviation is the same. 
 
 Error bars are convenient because they allow us to show many estimates with their uncertainties all at once. 
+
+---
+
+&lt;blockquote class="twitter-tweet"&gt;&lt;p lang="en" dir="ltr"&gt;Proper confidence interval definition in the NYTimes, love to see it!&lt;br&gt;&lt;br&gt;“If scientists came up with confidence intervals for 100 different samples using this method, the efficacy would fall inside the confidence intervals in 95 of them.”&lt;a href="https://t.co/IwMSHZaGMj"&gt;https://t.co/IwMSHZaGMj&lt;/a&gt;&lt;/p&gt;&amp;mdash; Lucy D’Agostino McGowan (@LucyStats) &lt;a href="https://twitter.com/LucyStats/status/1367629174672928770?ref_src=twsrc%5Etfw"&gt;March 5, 2021&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+
+???
+
 
 ---
 
@@ -326,21 +322,43 @@ Pierre Dragicevic's [Fair Statistical Communication in HCI](https://hal.inria.fr
 
 ???
 
-Problem not really with 
+Problem with null hypothesis statistical testing or NHST
+
+* let's take an example of a doctor deciding on one of four pills for weight loss
+
+* the right hand side provides the estimated mean weight loss for each pill along with the 95% confidence intervals and p-values
+
+* according to NHST, we're taught to look for a p-value less than 0.05 to indicate statistical significant differences between zero with 95% confidence.
+
+* in this case, we find pills 1, 3 and 4 and may even conclude pill 1 is the best since it has the lowest p -value and thus most evidence and certainty that the pill provides positive weight loss
+
+* i want to focus on two problems. 1 - this ignores effect size (answers which pill will reduce most weight loss) in which we'd likely want pill 4. if we used the lowest p value, we may choose pill 1 that is likely the worst option
+
+* 2nd - we can notice the arbitrary nature of p-values in pill 2 and 3 that have nearly identical effect sizes and uncertainty but in the "black and white" world of null hypothesis testing we'd confidently reject the null in pill 3 (p value less than 0.05) but not have sufficient evidence for pill 2 and may even (wrongly) conclude pill 2 is ineffective. 
+
+these points emphasize challenges identified of research associated with replication crisis in psychology and where some academics have called for reassessing the suitability of null hypothesis testing.
 
 ---
 
 # Dichotomous thinking
 
-&lt;img src="./img/katrina.jpeg" height=70% width=70%&gt;
-
----
-
-# Hurricane forecasting
-
-&lt;img src="./img/hurricane2.jpeg"&gt;
+&lt;img src="./img/hurricane-update.png" height=120% width=120%&gt;
 
 Liu et al.; Padilla, Hullman, and Kay (2020) 
+
+???
+
+this highlights the susceptibility of p-values to overemphasize the world as a dichotomous or binary outcome in which things are too black and white when in fact our data has many colors. this is sometimes called "Cognitive Categories"
+
+the data visualization theory that when visual boundaries, such as isocontours and error bars, are used for continuous data, the boundaries lead people to conceptualize the data as categorical. This theory is based on work by Barbra Tversky [61], in which she proposed that visual-spatial communications are intrinsically related to thought
+
+The Cone of Uncertainty is the current method used by the National Hurricane Center, and the border of the cone represents a 66% confidence interval around the mean predicted path. In numerous studies, researchers have found that viewers believe areas inside the cone are categorically different from areas outside the cone [5, 23, 55]. 
+
+When visualized with boundaries, viewers cannot ascertain that there is a distribution of uncertainty in the storm’s path. The cognitive category created by the border of the cone makes viewers believe that areas inside the cone are in the danger zone, and areas outside are relatively safe [5, 55]. 
+
+Participants’ decisions are influenced by a subconscious categorical interpretation of the cone even when they are given instructions about how to interpret the visualization correctly and they can report the correct judgments at the end of the study [23]. The result of this inaccurate and persistent categorization may cause some people who reside just outside the cone to believe they are safe and not take preparatory actions.
+
+Ensemble hurricane paths have received some criticism because older versions can look confusing, like a plate of spaghetti (a.k.a., spaghetti plots, see Figure 1.5 right). Researchers have addressed concerns by developing a method for reconstructing the predicted paths from runs of the model [65] (see Figure 1.5 left). The paths of the reconstructed ensembles have good separation and still communicate the uncertainty in the trajectory of the storm. The other benefit of using a path reconstruction procedure is that fewer lines are needed to show the full range of outcomes, which declutters the display. In the case of hurricane forecasting, decluttering the display allows researchers to make the paths thicker and represent the intensity of the storm in color and the size of the storm with a glyph. Liu at al. [65] found that their study participants could effectively make decisions that incorporated the path, size, and intensity of the storm when it was visualized as an ensemble display
 
 ---
 
@@ -351,7 +369,7 @@ class: center, middle, inverse
 
 &lt;img src="./img/error-error.jpeg"&gt;
 
-### Can animation help individuals better experience uncertainty?
+xkcd
 
 ---
 
@@ -360,6 +378,23 @@ class: center, middle
 &lt;img src="./img/correll.png"&gt;
 
 [Correll and Gleicher, TVCG 2014](https://graphics.cs.wisc.edu/Papers/2014/CG14/Preprint.pdf)
+
+---
+
+class: center, middle
+
+## Chocolate ratings by country
+
+.pull-left[
+&lt;img src="./img/cacao-vpline-1.png" width="500px" style="display: block; margin: auto;" /&gt;
+]
+.pull-right[
+
+&lt;img src="./img/cacao-confidence-density-1.png" width="500px" style="display: block; margin: auto;" /&gt;
+]
+
+Source: Claus Wilke's [`ungeviz` package](https://wilkelab.org/ungeviz/articles/sampling-bootstrapping.html)
+
 
 ---
 
@@ -407,6 +442,8 @@ class: center, middle
 
 In an incentivized crowdsource study that won best paper in IEEE Vis -- the top academic conference for data visualization -- researchers studied strategies chart users rely on when making judgments and decisions from visualizations showing the effectiveness of an intervention (i.e., effect size). 
 
+visual reasoning for effect sizes = Visual t-tests
+
 They expected chart users to rely on visual distance between distributions as a proxy for effect size, ignoring the spread of distributions. 
 
 Users compared distributions of outcomes with and without intervention -- in this case whether to add a player to a hypothetical fantasy sports team.
@@ -443,11 +480,15 @@ class: center, middle
 
 &lt;img src="./img/boot0.png"&gt;
 
+Source: [Seeing Theory Website by Kunin, Guo, Devlin and Xiang](https://seeing-theory.brown.edu/frequentist-inference/index.html#section3)
+
 ---
 
 class: center, middle
 
 &lt;img src="./img/boot-1.gif"&gt;
+
+Source: [Seeing Theory Website by Kunin, Guo, Devlin and Xiang](https://seeing-theory.brown.edu/frequentist-inference/index.html#section3)
 
 ---
 
@@ -455,11 +496,15 @@ class: center, middle
 
 &lt;img src="./img/boot-2.png"&gt;
 
+Source: [Seeing Theory Website by Kunin, Guo, Devlin and Xiang](https://seeing-theory.brown.edu/frequentist-inference/index.html#section3)
+
 ---
 
 class: center, middle
 
 &lt;img src="./img/bootstrap-demo-1.gif"&gt;
+
+Source: Claus Wilke's [`ungeviz` package](https://wilkelab.org/ungeviz/articles/sampling-bootstrapping.html)
 
 &lt;!-- --- --&gt;
 
@@ -485,13 +530,17 @@ class: center, middle, inverse
 
 class: center, middle
 
-&lt;img src="./img/xkcd-bayesian.png"&gt;
+&lt;img src="./img/xkcd-bayesian.png" width=60%&gt;
+
+xkcd
 
 ---
 
 class: center, middle
 
-&lt;img src="./img/xkcd-bayesian2.png" width=120% height=120%&gt;
+&lt;img src="./img/xkcd-bayesian2.png" width=100% height=100%&gt;
+
+xkcd
 
 ---
 
@@ -558,6 +607,8 @@ In other applications we've examined this to identifying misinformation on twitt
 
 ---
 
+class: center, middle
+
 # Bayesian cognitive modeling
 
 &lt;img src="./img/line-cone.gif" width="900px" style="display: block; margin: auto;" /&gt;
@@ -583,7 +634,7 @@ class: center, middle
 
 # Investing for Retirement
 
-&lt;img src="./img/myopic-loss-aversion2.png" height=46% width=46%&gt;
+&lt;img src="./img/myopicpresentation-01.png" width=80%&gt;
 
 Wesslen, Karduni, Markant, and Dou (In Review)
 
