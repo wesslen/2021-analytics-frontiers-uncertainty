@@ -10,15 +10,20 @@
     <meta name="twitter:title" content="Uncertainty visualizations for improving data science decision-making: How I learned to stop worrying and love uncertainty (by visualizing it)"/>
     <meta name="twitter:description" content="Uncertainty visualizations for improving data science decision-making"/>
     <meta name="twitter:url" content="uncc-frontiers-uncertainty.netlify.app"/>
+    <meta name="twitter:image:src" content="https://avatars.githubusercontent.com/u/7621432?v=4"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:creator" content="@ryanwesslen"/>
     <meta name="twitter:site" content="@ryanwesslen"/>
     <meta property="og:title" content="Uncertainty visualizations for improving data science decision-making: How I learned to stop worrying and love uncertainty (by visualizing it)"/>
     <meta property="og:description" content="Uncertainty visualizations for improving data science decision-making"/>
     <meta property="og:url" content="uncc-frontiers-uncertainty.netlify.app"/>
+    <meta property="og:image" content="https://avatars.githubusercontent.com/u/7621432?v=4"/>
     <meta property="og:type" content="website"/>
     <meta property="og:locale" content="en_US"/>
     <meta property="article:author" content="Ryan Wesslen"/>
+    <script src="libs/freezeframe/freezeframe.min.js"></script>
+    <script src="libs/xaringanExtra-freezeframe/freezeframe-init.js"></script>
+    <script id="xaringanExtra-freezeframe-options" type="application/json">{"selector":"img[src$=\"gif\"]","trigger":"click","overlay":false,"responsive":true,"warnings":true}</script>
     <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
     <script src="libs/fabric/fabric.min.js"></script>
     <link href="libs/xaringanExtra-scribble/scribble.css" rel="stylesheet" />
@@ -82,11 +87,7 @@ background-size: contain
 
 ???
 
-From COVID-19 to gamestop stocks to suez canal
-
-* these unexpected events foster uncertainty
-
-
+i think it's safe to say the one word we all have gotten to know too well recently is "uncertainty". whether it is a once in a century pandemic, volatile stock market swings, turbulent political elections, or even unexpected giant ships that blocks a critical global trade route, uncertainty is all around us.
 
 ---
 
@@ -101,7 +102,7 @@ uncertainty refers to our lack of knowledge about something.
 the term uncertainty can have many meanings:
 * risk vs. uncertainty from frank knight in economics
 * entropy from shannon's information theory
-* alea-toric (inherent noise/randomness) vs ep-is-tem-ic (lack sufficient data)
+* alea-toric (inherent noise/randomness) or ep-is-tem-ic (lack sufficient data) or ontological (uncertainty how accurately a model describes reality)
 
 to avoid a long philosophical debate, in this talk i want to focus on more traditional measurements what is a probability and understanding what are confidence intervals or bayesian statistics
 
@@ -139,9 +140,9 @@ where we think uncertainty may "be too busy" or "confusing" for executives and p
 
 ???
 
-or even in AI like NLP where state-of-the-art model accuracies like this -- at timeline of models' accuracy in one natural language processing task -- named entity recognition -- on a popular benchmark dataset.
+or even in AI like NLP where state-of-the-art model accuracies like this -- a timeline of accuracy in one natural language processing task -- named entity recognition -- on a popular benchmark dataset.
 
-how can we decide with confidence if one model really is better than another one without explicitly considering uncertainty?
+for machine learning, how can we decide with confidence if one model really is better than another one without explicitly considering uncertainty?
 
 ---
 
@@ -182,12 +183,9 @@ class: center, middle, inverse
 "People are very good at ignoring uncertainty... but it's especially true when we provide bad uncertainty representations" - Matthew Kay
 
 ???
-
+rephrase the question
 
 Decision-making: "choice between two or more competing courses of action" (Balleine, 2007 and Padilla et al., 2020)
-
-argument: visualization / hci techniques provide the best way to communicate uncertainty in data science
-
 
 ---
 
@@ -212,7 +210,7 @@ class: center, middle
 
 but first, let me briefly outline the general research approach of these fields in a three step feedback process.
 
-first, we use theories from psychology, cognitive science and behavioral economics to motivate research areas for data visualization. this could cover low level theories of decision-making like perceptual psychology where we're interested in how people perceive form, shape, and animation through low level processes. alternatively, this could also cover theories of higher level process that may require deliberate effort to process difficult information and require a choice of attention and precious processing resources.
+first, we use theories from psychology, cognitive science and behavioral economics to motivate research problems using data visualizations. this could cover low level theories of decision-making like perceptual psychology where we're interested in how people perceive form, shape, and animation through low level cognitive functions. alternatively, this could also cover theories of higher level cogntive functions that require deliberate effort to process difficult information and require a choice of attention and careful allocation of precious cognitive resources.
 
 second, using computer science tools like web development, machine learning, or back end engineering like database or deploying apps we develop experiment systems for either in-lab or crowdsource experiments like MTurk. this step can sometimes take the bulk of time as it requires larger teams that have a variety of skill set to develop these stand alone, custom ui typically leveraging languages like javascript, html/css, and python.
 
@@ -228,7 +226,17 @@ but to transition, i'd like to now focus on five core concepts related to uncert
 
 class: center, middle, inverse
 
+
+.pull-left[
+
+# Probabilities are hard
+
+
+]
+.pull-right[
 &lt;blockquote class="twitter-tweet tw-align-center" data-width="350"&gt;&lt;p lang="en" dir="ltr"&gt;Understanding uncertainty and probability is hard 🤣 &lt;a href="https://t.co/ebIEdI8DI3"&gt;https://t.co/ebIEdI8DI3&lt;/a&gt;&lt;/p&gt;&amp;mdash; Ryan Wesslen (@ryanwesslen) &lt;a href="https://twitter.com/ryanwesslen/status/1368247469411287043?ref_src=twsrc%5Etfw"&gt;March 6, 2021&lt;/a&gt;&lt;/blockquote&gt; &lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;
+]
+
 
 ???
 
@@ -312,6 +320,8 @@ but looking at these probabilities, many individuals may perceive differences, n
 
 class: center, middle
 
+# Frequency framing
+
 &lt;img src="./img/probabilities2.png"&gt;
 
 [Justin Gross (Washington Post)](https://www.washingtonpost.com/news/monkey-cage/wp/2016/11/29/how-to-better-communicate-election-forecasts-in-one-simple-chart/?noredirect=on&amp;utm_term=.aa4aba18cf7b)
@@ -327,14 +337,6 @@ we can immediately see that 2% while very low, is not equal to zero and still be
 can be helpful in other areas with low probabilities like health care -- for example very rare side effects to vaccines.
 
 this core idea is based on the idea of "frequency framing" of visualization, popularized by the psychologist Gert Gigerinzer
-
----
-
-# Frequency framing
-
-&lt;img src="./img/frequency.png"&gt;
-
-[Claus Wilke](https://clauswilke.com/dataviz/visualizing-uncertainty.html)
 
 ---
 
@@ -362,6 +364,20 @@ class: center, middle
 Numbers Actually Mean?](https://www.nytimes.com/interactive/2021/03/03/science/vaccine-efficacy-coronavirus.html) 
 By Carl Zimmer and Keith Collins, March 3, 2021
 
+???
+
+alternatively, there are also great examples of excellent data journalism communication by media outlets like the New York Times.
+
+in a recent article, they used frequency framing to help readers better interpret vaccine effectiveness.
+
+using the Johnson &amp; Johnson vaccine, we may hear that it has a 66% efficacy -- but what does that mean?
+
+using frequency framing, they displayed individual dots for the two experimental groups. in the placebo group, 49 per every 5,000 participants contracted covid-19 -- however, at the same time only 17 per every 5,000 participants who received the vaccination contracted covid-19. in this way, we can think of the efficacy as a relative measure of -- holding all things constant -- how much lower the chance of contracting covid after being vaccinatinated with the J&amp;J vaccine compared to not getting the vaccine.
+
+visually, we can view 66% fewer green dots for the vaccinated group compared to the blue dots for the placebo dots.
+
+this is even more important, where if we view similar relative probabilities but for contracting severe covid, in which we have an 85% less risk of severe cases.
+
 ---
 
 class: center, middle, inverse
@@ -370,11 +386,27 @@ class: center, middle, inverse
 
 &lt;img src="./img/inigo.jpeg"&gt;
 
+???
+
+but even if we understand efficacy -- what can we say about the uncertainty around that value?
+
+well - many of you may think - ah, that easy, we can calculate my classic 95% confidence interval. well, to paraphrase inigo montoya, perhaps that may not mean what you think it means.
+
 ---
 
 class: center
 
 &lt;img src="./img/ci.png" width=100% &gt;
+
+???
+
+if we return to the same article, we can view the 95% confidence intervals for four different vaccine trials.
+
+where the green dot represents our point estimate of the efficacy estimate and the two black dots provide the 95% confidence intervals for that efficacy.
+
+Such intervals are convenient because they allow us to show many estimates with their uncertainties all at once. 
+
+however, what do confidence intervals really mean?
 
 --
 
@@ -383,11 +415,8 @@ class: center
 
 ???
 
-The large represents the estimated efficacy per with 95% confidence intervals showing lower and upper bounds
+well first, you may think that it means there is a 95% chance that the true value falls into the confidence interval? and unfortunately that's not really true.
 
-Such intervals are convenient because they allow us to show many estimates with their uncertainties all at once. 
-
-however, a major misconception with confidence intervals is that we can interpret these intervals as where we'd expect to find the true efficacy value.
 
 ---
 
@@ -398,6 +427,10 @@ class: center
 
 &lt;img src="./img/ci-phrase2.png" &gt;
 
+???
+
+and unfortunately that's not really true.
+
 
 ---
 
@@ -405,7 +438,7 @@ class: center
 
 ???
 
-Or highlighted by Lucy McGowan of Wake Forest university -- great host of the podcast casual inference highly recommend -- quotes the true definition of a classical confidence interval:
+but instead -- as highlighted by Lucy McGowan of Wake Forest university -- highly recommend to follow her and her awesome stats podcast "casual inference" -- quotes the true definition of a classical confidence interval:
 
 ---
 
@@ -418,7 +451,9 @@ class: center, middle
 
 ???
 
-Such Confidence intervals (CIs) -- sometimes referred to as Frequentist confidence intervals -- are best understood in the context of repeated sampling. For each sample, a specific confidence interval either includes or excludes the true parameter, here the mean. However, if we sample repeatedly, then the confidence intervals (shown here are 68% confidence intervals, corresponding to sample mean +/- standard error) include the true mean approximately 68% of the time.
+Instead Confidence intervals (CIs) -- sometimes referred to as Frequentist confidence intervals -- are best understood in the context of repeated sampling. For each sample, a specific confidence interval either includes or excludes the true parameter, here the mean. However, if we sample repeatedly, then the confidence intervals (shown here are 68% confidence intervals, corresponding to sample mean +/- standard error) include the true mean approximately 68% of the time.
+
+Frequentists refer to interpretating of probability as the long-run relative frequency of a repeatable event.
 
 A frequentist confidence interval: “How certain are we that the true parameter value is not zero?”
 
@@ -439,7 +474,11 @@ Pierre Dragicevic's [Fair Statistical Communication in HCI](https://hal.inria.fr
 
 ???
 
-Problem with null hypothesis statistical testing or NHST
+but frequentist statistics are not just confusing for confidence intervals, but also their larger framework of determining statistical significance can be tough to understand. namely the null hypothesis statistical testing paradigm.
+
+under the frequentist approach, you first make an assumption that you intend to disprove. This assumption is called the null hypothesis, and it is often simply the assumption that the parameter equals zero (e.g., there is no difference between two conditions). You then calculate the probability that random sampling would generate data similar to what was observed if the null hypothesis were true, which is called the p-value. The confidence interval is a representation of this probability. If a given confidence interval excludes the parameter value under the null hypothesis (i.e., the value zero), then you can reject the null hypothesis at that confidence level. 
+
+but there are problems with this framework that is sometimes overlooked in college statistics.
 
 * let's take an example of a doctor deciding on one of four pills for weight loss
 
@@ -562,7 +601,8 @@ they were then asked: "how likely is it that B will be greater than A if many mo
 --
 .pull-right[
 
-&lt;img src="./img/hops.gif"&gt;
+&lt;img src="./img/hops.gif" width="200px" style="display: block; margin: auto;" /&gt;
+
 ]
 
 **Hypothetical outcome plots**
@@ -573,8 +613,9 @@ they were then asked: "how likely is it that B will be greater than A if many mo
 
 ???
 
-as an alternative, researchers developed the hypothetical outcome plot or HOP
-HOP. this plot has two steps. (1) Draw a sample of hypothetical outcomes (draws) from the distribution; (2) for each, make a plot that becomes one frame in an animated presentation. 
+as an alternative, researchers developed the hypothetical outcome plot or HOP. 
+
+this plot can be created in two steps. (1) Draw a sample of hypothetical outcomes (draws) from the distribution; (2) for each, make a plot that becomes one frame in an animated presentation. 
 
 For example, the right depicts several frames for a HOPs visualization for a single random variable. Each frame contains a horizontal bar that depicts a specific outcome, one draw for that random variable.
 
@@ -658,7 +699,7 @@ and this is where we'll move to the dark side of Bayesian analysis.
 
 built from Thomas Bayes' derived bayes rule, bayesian analysis is the counterpart to more classically "frequentist" or null hypothesis testing paradigms. 
 
-Frequentists are so named for their interpretation of probability as the long-run relative frequency of a repeatable event.
+if you remember, Frequentists refer to interpretating of probability as the long-run relative frequency of a repeatable event.
 
 Bayesians, a probability measures the relative plausibility of an event.
 
@@ -693,9 +734,7 @@ xkcd
 
 how do we even measure probabilities for one time events within frequentist perspective?
 
-Bayesian analysis assesses the uncertainty of the hypothesis in light of the observed data
-
-frequentist analysis assesses the uncertainty of the observed data in light of an assumed hypothesis.
+as you may remember, frequentist is based on 
 
 ---
 
@@ -707,7 +746,7 @@ class: center, middle
 
 ???
 
-one common place is election predictions. these are helpful as we update our beliefs about the elections as new data -- polls -- are updated.
+one common application is making election predictions. these are helpful as we update our beliefs about the elections as new data -- polls -- are updated.
 
 to describe the bayesian framework, we'll use a figure from the economist and outlien the 3 step process in bayesian inference.
 
@@ -717,7 +756,7 @@ next we observe new data and can accordingly calculate the likelihood of that da
 
 third, using both our prior and likelihood to calculate the posterior prediction. this last step is the ultimate combination of both our prior beliefs and the new data.
 
-from this perspective, it's important to consider three important points.
+it's important to consider three important points.
 
 first in bayesian analysis, we focus on distributions, especially the posterior, rather than on point estimates and uncertainty around that estimate -- as in frequentist. this is one reason we can better visualize the full posterior as opposed to frequentist uncertainty that lends itself to smoother distributions and hence simple error bars rather than detailed density plots.
 
@@ -746,6 +785,8 @@ I'd like to finish with recent research at UNCC Ribarsky Center for Visual Analy
 Bill had an amazing transformative career where he helped revolutionize visualization research, first in Georgia Tech where he researched VR and interactive visualizations in the 80s - 90s and then transformed UNCC into a powerhouse of the burdening fields of visualization when he joined in 2004.
 
 His enduring partnerships with practice including companies like Bank of America as well as government agencies like the Department of Homeland Security, DOE, U.S. Department of Transportation, EPA showed how relevant vis research is to practioners and we're proud to continue the legacy Bill paved.
+
+This research is joint collaboration with Wenwen Dou, Alireza Karduni, and Doug Markant.
 
 ---
 
@@ -799,13 +840,28 @@ class: center, middle
 
 # Bayesian cognitive modeling
 
-&lt;img src="./img/line-cone.gif" width="900px" style="display: block; margin: auto;" /&gt;
+&lt;img src="./img/line-cone-final-1.png" width="900px" style="display: block; margin: auto;" /&gt;
 
 [Karduni, Markant, Wesslen, and Dou (IEEE InfoVis 2020)](https://arxiv.org/abs/2008.00058)
 
 ???
 
-To address 
+Three MTurk experiments where we tested line-cone interactive technique built in D3 (javascript)
+
+
+
+
+---
+
+class: center, middle
+
+# Bayesian cognitive modeling
+
+&lt;img src="./img/line-cone-final-2.png" width="900px" style="display: block; margin: auto;" /&gt;
+
+[Karduni, Markant, Wesslen, and Dou (IEEE InfoVis 2020)](https://arxiv.org/abs/2008.00058)
+
+???
 
 Bayesian cognitive modeling provide a normative benchmark for how beliefs should change depending on the strength of the evidence and participants’ uncertainty. 
 
@@ -815,8 +871,22 @@ A second person who is highly uncertain about the relationship, however, may be 
 
 This framework also allows us to identify when people systematically fail to adjust their beliefs as predicted by the Bayesian model.
 
-Three MTurk experiments where we tested line-cone interactive technique built in D3 (javascript)
+---
 
+class: center, middle
+
+# Bayesian cognitive modeling
+
+&lt;img src="./img/line-cone-final-3.png" width="900px" style="display: block; margin: auto;" /&gt;
+
+[Karduni, Markant, Wesslen, and Dou (IEEE InfoVis 2020)](https://arxiv.org/abs/2008.00058)
+
+
+???
+
+Last, we compared users predicted posteriors versus their elicited posteriors, measuring the difference by either mean absolute error or KL divergence, which measure the difference across the full distribution.
+
+By doing so this gave us measurement of deviation from ideal rationality, in this sense a "human bias". typically bias is used frequently but it's always critical when someone says bias, you need to always ask: "bias relative to what?". the challenge is typically we can't quantify as we use ideals of perfect behaviors. but this approach provides a long term technique that will enable to measure based on a normative, or as if rational individual.
 
 ---
 
@@ -830,7 +900,7 @@ Wesslen, Karduni, Markant, and Dou (In Review)
 
 ???
 
-In our most recent experiment, we leveraged an important idea from Behavorial Economist -- notably 2017 nobel prize winner richard thaler and his then student shlomo benartzi -- on the idea of myopic loss aversion, which is the idea that more we evaluate our portfolios, the higher our chance of seeing a loss and, thus, the more susceptible we are to loss aversion.
+In our most recent experiment, we used an important idea from Behavorial Economist -- notably 2017 nobel prize winner richard thaler and his then student shlomo benartzi -- on the idea of myopic loss aversion, which is the idea that more we evaluate our portfolios, the higher our chance of seeing a loss and, thus, the more susceptible we are to loss aversion.
 
 in a 1999 experiment, benartzi and thaler found that the way we frame investment returns for long term investing -- like retirement over 30 years -- can have a huge effect on basic allocation decision on stocks versus bonds. their experiment was a powerful explanation for the deep puzzle of the equity premium puzzle in economics, in which economists' mathematical models could not explain the excessively high historical outperformance of stocks over much safer bonds. 
 
@@ -850,7 +920,7 @@ Wesslen, Karduni, Markant, and Dou (In Review)
 
 ???
 
-what we want to know is could we replicate their findings in an incentivized mturk study and could more recent uncertainty visualizations like HOPs or dot plots nudge participants to allocate more to stocks.
+what we want to know is could we replicate their findings in an incentivized mturk study and could more recent uncertainty visualizations like HOPs or dot plots nudge participants to allocate more to stocks. we also included controls like simply showing the values in table as well.
 
 ---
 
