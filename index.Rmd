@@ -34,7 +34,7 @@ meta() %>%
 
 
 ```{r xaringanExtra-freezeframe, echo=FALSE}
-xaringanExtra::use_freezeframe()
+#xaringanExtra::use_freezeframe()
 xaringanExtra::use_tachyons()
 xaringanExtra::use_scribble()
 ```
@@ -662,7 +662,7 @@ they were then asked: "how likely is it that B will be greater than A if many mo
 --
 .pull-right[
 
-```{r, out.width = "200px"}
+```{r}
 knitr::include_graphics("./img/hops.gif")
 ```
 
@@ -1117,7 +1117,9 @@ building from similar ideas, very recent research -- one recent paper by a range
 
 ### Better communicate uncertainty, better human-AI collaboration?
 
-#### - Incredibly important for trust and transparency in AI
+#### - Uncertainty is typically overlooked in AI/ML
+
+#### - Likely very important in future for trust and transparency in AI
 
 ---
 

@@ -21,9 +21,6 @@
     <meta property="og:type" content="website"/>
     <meta property="og:locale" content="en_US"/>
     <meta property="article:author" content="Ryan Wesslen"/>
-    <script src="libs/freezeframe/freezeframe.min.js"></script>
-    <script src="libs/xaringanExtra-freezeframe/freezeframe-init.js"></script>
-    <script id="xaringanExtra-freezeframe-options" type="application/json">{"selector":"img[src$=\"gif\"]","trigger":"click","overlay":false,"responsive":true,"warnings":true}</script>
     <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
     <script src="libs/fabric/fabric.min.js"></script>
     <link href="libs/xaringanExtra-scribble/scribble.css" rel="stylesheet" />
@@ -601,7 +598,7 @@ they were then asked: "how likely is it that B will be greater than A if many mo
 --
 .pull-right[
 
-&lt;img src="./img/hops.gif" width="200px" style="display: block; margin: auto;" /&gt;
+&lt;img src="./img/hops.gif" width="80%" style="display: block; margin: auto;" /&gt;
 
 ]
 
@@ -782,9 +779,9 @@ Joint work with Wenwen Dou, Alireza Karduni, and Doug Markant
 
 I'd like to finish with recent research at UNCC Ribarsky Center for Visual Analytics, which was recently renamed after Dr. Bill Ribarsky, the former UNCC BofA Endowed Chair and Professor who sadly passed in 2017.
 
-Bill had an amazing transformative career where he helped revolutionize visualization research, first in Georgia Tech where he researched VR and interactive visualizations in the 80s - 90s and then transformed UNCC into a powerhouse of the burdening fields of visualization when he joined in 2004.
+Bill had an amazing transformative career where he helped revolutionize visualization research, first in Georgia Tech where he researched VR and interactive visualizations starting in the early 90s and then helped transform UNCC as a leader in the burdening fields of data visualization when he joined in 2004 and later served as chair of the computer science department as well helping to develop UNCC's data science intiative, which is now the school of data science.
 
-His enduring partnerships with practice including companies like Bank of America as well as government agencies like the Department of Homeland Security, DOE, U.S. Department of Transportation, EPA showed how relevant vis research is to practioners and we're proud to continue the legacy Bill paved.
+His strong partnerships with industry like Bank of America as well as government agencies like the Department of Homeland Security, EPA, DOE, U.S. Department of Transportation, showed how relevant vis research can be to practioners and we're proud to continue the legacy Bill paved.
 
 This research is joint collaboration with Wenwen Dou, Alireza Karduni, and Doug Markant.
 
@@ -834,6 +831,14 @@ What is the relationship between income tax rate and poverty rate of cities?
 
 Built with D3.js (javascript)
 
+???
+
+to measure individuals beliefs, we developed a d3 javascript techinque in which users could click a line to measure their belief on the correlation between two variables. they could then expand the "cone" to measure their beliefs about how certain they are for their belief.
+
+wider cones indicate more uncertainty around their prediction while more narrow cones indicate more certainty on their predicted correlation.
+
+in doing so, participants were providing their prior beliefs on the correlation estimate as well as a measure
+
 ---
 
 class: center, middle
@@ -846,7 +851,15 @@ class: center, middle
 
 ???
 
-Three MTurk experiments where we tested line-cone interactive technique built in D3 (javascript)
+with this new techniques, we designed three crowdsourced mturk experiments where users were asked to do three things.
+
+first, participants would be asked their beliefs on two variables, using the line-cone technique to measure both their prior belief on the estimate as well as their level of uncertainty on that belief. we provided users dozens of political, social and economic variables tested through pilot studies, with a range of charged variables like vaccination rates and rate of illness or more benign like exercise amount and body weight. 
+
+next, we provided participants hypothetical data in typically a scatter plot for data for the elicited variables. the data was fabricated to enable us to control for different rates of variation (positive, zero, negative, high or low variance). in addition to scatter plots, we also tested different uncertainty visualizations too.
+
+third, we elicited participants a 2nd time to provide their posterior beliefs. in effect, what we wanted to measure was how much change did participants modify their prior by "learning" from the data or alternatively -- ignoring the data and sticking to their prior.
+
+in effect, the goal was to measure something akin to confirmation bias and see if and when participants may exhibit more or less bias.
 
 
 
@@ -863,7 +876,7 @@ class: center, middle
 
 ???
 
-Bayesian cognitive modeling provide a normative benchmark for how beliefs should change depending on the strength of the evidence and participants’ uncertainty. 
+to compare participants updating of their beliefs, we used Bayesian cognitive modeling to provide a normative benchmark for how beliefs should change depending on the strength of the evidence and participants’ uncertainty. 
 
 For instance, a person who is confident that variables are negatively correlated may only shift their beliefs a small amount after seeing a dataset with a positive sample correlation. 
 
@@ -1022,7 +1035,9 @@ building from similar ideas, very recent research -- one recent paper by a range
 
 ### Better communicate uncertainty, better human-AI collaboration?
 
-#### - Incredibly important for trust and transparency in AI
+#### - Uncertainty is typically overlooked in AI/ML
+
+#### - Likely very important in future for trust and transparency in AI
 
 ---
 
